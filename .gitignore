@@ -1,4 +1,6 @@
-key.js
+# passwords
+*keys.js
+keys.js
 
 # Logs
 logs
@@ -37,3 +39,5 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+
