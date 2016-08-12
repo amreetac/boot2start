@@ -1,0 +1,24 @@
+{
+  "name": "boot2start",
+  "version": "1.0.0",
+  "description": "Startup jobfinder for bootcamps",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amreetac/boot2start.git"
+  },
+  "keywords": [
+    "Bootcamp",
+    "Startup",
+    "Jobs"
+  ],
+  "author": "Jeffrey Abraham Kris Koover Amreeta Choudhury Sudarshana Chavan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amreetac/boot2start/issues"
+  },
+  "homepage": "https://github.com/amreetac/boot2start#readme"
+}
