@@ -1,0 +1,110 @@
+<!--Set up this file to have the template that Handlebars can render onto
+Also, create a button that will submit the user input into the database.-->
+
+<!-- Stays constant -->
+  <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#home">
+            <img id="navlogo" src="img/navlogo-blue.png" alt="microstore" width="122" height="45">
+          </a>
+
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul id="navigation" class="nav navbar-nav navbar-right text-center">
+            <li><a href="#products">Bootcamps</a></li>
+            <li><a href="#about">Startups</a></li>
+            <!-- <li><a href="#testimonial">Testimonials</a></li> -->
+            <li><a href="#orderform">Login/Sign-up</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+<!--What will be changing. We will be generating table based on bootcamps from database -->
+
+        <div id="projects-container" class="row">
+          <article class="design product col-xs-12 anima fade-up">
+          <div class="img-box">
+              <div class="container"> 
+
+
+              <br>
+
+              <br>
+
+              <br>
+
+            <h2> Top startups of the day</h2>
+
+            <br> 
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Company Name</th>
+                  <th>Location</th>
+                  <th>Top Job and Salary Range</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Startup A</td>
+                  <td>Newark, New Jersey</td>
+                  <td>Full stack Developer  $60-80k </td>
+                </tr>
+                <tr>
+                  <td>Startup B</td>
+                  <td>New York, New York</td>
+                  <td>Angular JS Developer $80-100k</td>
+                </tr>
+                <tr>
+                  <td>Startup C</td>
+                  <td>San Jose, CA </td>
+                  <td>UX Designer $100k</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class = "btn-cntr">
+          <a class="btn btn-store cta-button smooth-scroll" href="#orderform" >More Information</a>
+          </div>
+            </div>
+            </div>
+
+            <br>
+            
+          </article> 
+    <!--What will be staying constant -->
+
+        <footer id="main-footer" class="dark-bg light-typo">
+      <div class="container">
+        <p class="pull-left copyright">&copy; MicroStore 2014. <br> Designed by <a href="http://demo.angelostudio.net" target="_blank">Angelo Studio</a>.<br>
+        </p>
+
+        <div class="pull-right paymentMethodImg copyright">
+          <a class="btn btn-store outline" href="#" data-toggle="modal" data-target=".text-modal">Terms & conditions</a>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script type="text/javascript" src="plugins/jquery/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="plugins/angular/angular.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="plugins/singlepagenav/jquery.singlePageNav.min.js"></script>
+    <script type="text/javascript" src="plugins/countdown/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="plugins/owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="plugins/waitforimages/jquery.waitforimages.min.js"></script> 
+  
+    <script type="text/javascript" src="js/hero-slider.js"></script>
+    <script type="text/javascript" src="js/project-slider.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
