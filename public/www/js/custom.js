@@ -55,16 +55,7 @@ $(document).ready(function() {
 
 	/* testimonial ======================================= */
 	$('.carousel').carousel();
-	
-	/* One Page Navigation Setup ======================================= */
-	$('#main-nav').singlePageNav({
-		offset: $('.navbar').height(),
-		speed: 750,
-		currentClass: 'active',
-		filter: ':not(.external)',
-		beforeStart: function() {},
-		onComplete: function() {}
-	});
+
 	
 	/* Bootstrap Affix ======================================= */		
 	$('#modal-bar').affix({
