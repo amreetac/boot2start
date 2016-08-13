@@ -38,6 +38,7 @@
 .btn-store.outline:active,
 .owl-theme .owl-nav [class*=owl-]:hover  {
 	background-color: #2DAFF0;
+	text-align: center;
 }
 
 .btn-store:hover,
@@ -62,3 +63,26 @@
 	color:#2DAFF0;
 }
 
+.container {
+	height: 100%;
+}
+
+footer {
+    background: #666;
+    color: #fff;
+    border-top: 8px solid #4aaaa5;
+    color: #ccc;
+    font-size: 12px;
+    text-align: center;
+}
+
+.btn-cntr{
+	text-align: center;
+}
+
+#main-footer {
+	position:absolute;
+   bottom:0;
+   width:100%;
+   height:100px;   /* Height of the footer */
+}
