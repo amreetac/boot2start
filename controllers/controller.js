@@ -5,9 +5,7 @@ var router = express.Router();
 // ==============================================================================
 router.get('/', function (req, res) {
   console.log('index route');
-  res.json({
-    route: 'index page'
-  });
+  res.render('landing');
 });
 
 // GET all bootcamps, candidates or startups
@@ -19,19 +17,23 @@ router.get('/:route', function (req, res) {
   switch (route) {
   case 'bootcamps':
     console.log('bootcamps route');
-    break;
-  case 'candidates':
-    console.log('candidates route');
+    res.render('bootcamps');
     break;
   case 'startups':
     console.log('startups route');
+    res.render('startups');
+    break;
+  case 'login':
+    console.log('login route');
+    res.render('login');
     break;
   default:
-    console.log('route not found');
+    console.log('route not found:', route);
+    res.json({
+      status: 'err: page not found',
+      route: route
+    });
   }
-  res.json({
-    route: route
-  });
 
 });
 
@@ -54,12 +56,13 @@ router.get('/:route/:id', function (req, res) {
     console.log('startup route');
     break;
   default:
-    console.log('route not found');
+    console.log('route not found:', route);
+    res.json({
+      status: 'err: page not found',
+      route: route,
+      id: id
+    });
   }
-  res.json({
-    route: route,
-    id: id
-  });
 });
 
 // POST bootcamp, startup or candidate
@@ -77,11 +80,13 @@ router.post('/:route/create', function (req, res) {
     console.log('startup route');
     break;
   default:
-    console.log('route not found');
+    console.log('route not found:', route);
+    res.json({
+      status: 'err: page not found',
+      route: route
+    });
   }
-  res.json({
-    route: route
-  });
+
 });
 
 // PUT to bootcamp, startup or candidate
@@ -102,12 +107,14 @@ router.put('/update/:route/:id', function (req, res) {
     console.log('startup route');
     break;
   default:
-    console.log('route not found');
+    console.log('route not found:', route);
+    res.json({
+      status: 'err: page not found',
+      route: route,
+      id: id
+    });
   }
-  res.json({
-    id: id,
-    route: route
-  });
+
 });
 
 // DELETE bootcamp, startup
@@ -128,12 +135,14 @@ router.delete('/delete/:route/:id', function (req, res) {
     console.log('startup route');
     break;
   default:
-    console.log('route not found');
+    console.log('route not found:', route);
+    res.json({
+      status: 'err: page not found',
+      route: route,
+      id: id
+    });
   }
-  res.json({
-    id: id,
-    route: route
-  });
+
 });
 
 
