@@ -6,7 +6,7 @@ var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(process.cwd() + '/public'));
-
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
@@ -18,8 +18,9 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var routes = require('./controllers/controller.js');
-app.use('/', routes);
+// routes
+require('./routes/main.js')(app);
+require('./routes/api.js')(app);
 
 var PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
