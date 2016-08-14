@@ -6,7 +6,7 @@ This will be a project that matches bootcamp students to start- ups. We may use 
 
 ### GET ROUTES
 
-- landing page:  `/``
+- landing page:  `/`
 
 - all bootcamps: `/bootcamps`
 
