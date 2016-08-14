@@ -6,47 +6,47 @@ This will be a project that matches bootcamp students to start-ups. We may use A
 
 ### GET ROUTES
 
-+landing page:  /
+*landing page:  /
 
-+all bootcamps: /bootcamps
+*all bootcamps: /bootcamps
 
-+all startups:  /startups
+*all startups:  /startups
 
-+login:         /login
+*login:         /login
 
 
-+candidats in a bootcamp: /bootcamp/[bootcampID]
+*candidats in a bootcamp: /bootcamp/[bootcampID]
 
-+candidate 				 /candidate/[candidateID]
+*candidate 				 /candidate/[candidateID]
 
-+startup					/startup/[startupID]
+*startup					/startup/[startupID]
 
 
 
 ### POST ROUTES
 
-+create bootcamp:	/bootcamp/create
+*create bootcamp:	/bootcamp/create
 
-+create startup:		/startup/create
+*create startup:		/startup/create
 
-+create candidate 	/candidate/create
+*create candidate 	/candidate/create
 
 
 
 ### PUT ROUTES
 
-+update bootcamp:  /update/bootcamp/[bootcampID]
+*update bootcamp:  /update/bootcamp/[bootcampID]
 
-+update candidate: /update/candidate/[candidateID]
+*update candidate: /update/candidate/[candidateID]
 
-+update startup: /update/startup/[startupID]
+*update startup: /update/startup/[startupID]
 
 
 
 ### delete ROUTES
 
-+delete bootcamp:  /delete/bootcamp/[bootcampID]
+*delete bootcamp:  /delete/bootcamp/[bootcampID]
 
-+delete candidate: /delete/candidate/[candidateID]
+*delete candidate: /delete/candidate/[candidateID]
 
-+delete startup: /delete/startup/[startupID]
+*delete startup: /delete/startup/[startupID]
