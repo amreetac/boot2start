@@ -1,33 +1,46 @@
 {
-  "name": "boot2start",
-  "version": "1.0.0",
-  "description": "Startup jobfinder for bootcamps",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amreetac/boot2start.git"
-  },
-  "keywords": [
-    "Bootcamp",
-    "Startup",
-    "Jobs"
-  ],
-  "author": "Jeffrey Abraham Kris Koover Amreeta Choudhury Sudarshana Chavan",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/amreetac/boot2start/issues"
-  },
-  "homepage": "https://github.com/amreetac/boot2start#readme",
-  "devDependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "express-handlebars": "^3.0.0",
-    "method-override": "^2.3.6",
-    "mysql": "^2.11.1",
-    "sequelize": "^3.24.0",
-    "sequelize-cli": "^2.4.0"
-  }
+    "name": "boot2start",
+    "version": "1.0.0",
+    "description": "Startup jobfinder for bootcamps",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/amreetac/boot2start.git"
+    },
+    "keywords": [
+        "Bootcamp",
+        "Startup",
+        "Jobs"
+    ],
+    "author": "Jeffrey Abraham Kris Koover Amreeta Choudhury Sudarshana Chavan",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/amreetac/boot2start/issues"
+    },
+    "homepage": "https://github.com/amreetac/boot2start#readme",
+    "devDependencies": {
+        "bcrypt": "^0.8.7",
+        "body-parser": "^1.15.2",
+        "express": "^4.14.0",
+        "express-handlebars": "^3.0.0",
+        "express-session": "^1.14.0",
+        "method-override": "^2.3.6",
+        "mysql": "^2.11.1",
+        "sequelize": "^3.24.0",
+        "sequelize-cli": "^2.4.0"
+    },
+    "dependencies": {
+        "bcrypt": "^0.8.7",
+        "body-parser": "^1.15.2",
+        "express": "^4.14.0",
+        "express-session": "^1.14.0",
+        "express-handlebars": "^3.0.0",
+        "method-override": "^2.3.6",
+        "mysql": "^2.11.1",
+        "sequelize": "^3.24.0"
+    }
 }
