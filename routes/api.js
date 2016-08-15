@@ -2,22 +2,50 @@ module.exports = function (app) {
 
   // POST bootcamp, startup or candidate
   // ==============================================================================
-  app.post('/:route/create', function (req, res) {
+  app.post('/api/create/:route', function (req, res) {
+    let body = req.body;
     let route = req.params.route;
+    console.log(body);
     switch (route) {
+
+      // CREATE BOOTCAMP
     case 'bootcamp':
       console.log('bootcamp route');
       break;
+
+      // CREATE CANDIDATE
     case 'candidate':
       console.log('candidate route');
       break;
+
+      // CREATE STARTUP
     case 'startup':
       console.log('startup route');
       break;
+
+      // CREATE USER
+    case 'user':
+      console.log('user route');
+      db.User.create({
+        email: body.email,
+        password: body.password
+      }).then(function () {
+        db.User.findAll({}).then(function (users) {
+          console.log(users);
+          res.json({
+            success: true,
+            users: users
+          });
+        });
+      });
+      break;
+
+      // ROUTE NOT FOUND
     default:
       console.log('route not found:', route);
       res.json({
-        status: 'err: page not found',
+        success: false,
+        message: 'err: page not found',
         route: route
       });
     }
@@ -26,25 +54,34 @@ module.exports = function (app) {
 
   // PUT to bootcamp, startup or candidate
   // ==============================================================================
-  app.put('/update/:route/:id', function (req, res) {
+  app.put('/api/update/:route/:id', function (req, res) {
     let id = 'id = ' + req.params.id;
     let route = req.params.route;
     console.log(id);
     console.log(`route: ${route}`);
     switch (route) {
+
+      // UPDATE BOOTCAMP
     case 'bootcamp':
       console.log('bootcamp route');
       break;
+
+      // UPDATE CANDIDATE
     case 'candidate':
       console.log('candidate route');
       break;
+
+      // UPDATE STARTUP
     case 'startup':
       console.log('startup route');
       break;
+
+      // ROUTE NOT FOUND
     default:
       console.log('route not found:', route);
       res.json({
-        status: 'err: page not found',
+        success: false,
+        message: 'err: page not found',
         route: route,
         id: id
       });
@@ -54,7 +91,7 @@ module.exports = function (app) {
 
   // DELETE bootcamp, startup
   // ==============================================================================
-  app.delete('/delete/:route/:id', function (req, res) {
+  app.delete('/api/delete/:route/:id', function (req, res) {
     let route = req.params.route;
     let id = 'id = ' + req.params.id;
     console.log(`route: ${route}`);
@@ -72,7 +109,8 @@ module.exports = function (app) {
     default:
       console.log('route not found:', route);
       res.json({
-        status: 'err: page not found',
+        success: false,
+        message: 'err: page not found',
         route: route,
         id: id
       });
