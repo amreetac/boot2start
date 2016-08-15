@@ -10,28 +10,82 @@ module.exports = function (app) {
 
       // CREATE BOOTCAMP
     case 'bootcamp':
-      console.log('bootcamp route');
+      console.log('POST bootcamp route');
+      db.Bootcamp.create({
+
+        name: body.name,
+        logoURL: body.logoURL
+
+      }).then(function () {
+        db.Bootcamp.findAll({}).then(function (bootcamps) {
+          res.json({
+            success: true,
+            bootcamps: bootcamps
+          })
+        })
+      })
       break;
 
       // CREATE CANDIDATE
     case 'candidate':
-      console.log('candidate route');
+      console.log('POST candidate route');
+      db.Candidate.create({
+
+        firstName: body.firstName,
+        lastName: body.lastName,
+        phoneNumber: body.phoneNumber,
+        email: body.email,
+        bootcampCourse: body.bootcampCourse,
+        resumeURL: body.resumeURL,
+        pictureURL: body.pictureURL,
+        city: body.city,
+        state: body.state,
+        courseFinish: body.courseFinish,
+        bio: body.bio,
+        skills: body.skills
+
+      }).then(function () {
+        db.Candidate.findAll({}).then(function (candidates) {
+          res.json({
+            success: true,
+            candidates: candidates
+          })
+        })
+      })
       break;
 
       // CREATE STARTUP
     case 'startup':
-      console.log('startup route');
+      console.log('POST startup route');
+      db.Startup.create({
+
+        name: body.name,
+        logoURL: body.logoURL,
+        email: body.email,
+        phoneNumber: body.phoneNumber,
+
+      }).then(function () {
+        db.Startup.findAll({}).then(function (startups) {
+          res.json({
+            success: true,
+            startups: startups
+          })
+        })
+      })
       break;
 
       // CREATE USER
     case 'user':
       console.log('user route');
       db.User.create({
+
         email: body.email,
         password: body.password
+
       }).then(function () {
         db.User.findAll({}).then(function (users) {
           console.log(users);
+
           res.json({
             success: true,
             users: users
@@ -42,10 +96,10 @@ module.exports = function (app) {
 
       // ROUTE NOT FOUND
     default:
-      console.log('route not found:', route);
+      console.log('POST route not found:', route);
       res.json({
         success: false,
-        message: 'err: route not found',
+        message: 'err: POST route not found',
         route: route
       });
     }
@@ -63,25 +117,25 @@ module.exports = function (app) {
 
       // UPDATE BOOTCAMP
     case 'bootcamp':
-      console.log('bootcamp route');
+      console.log('PUT bootcamp route');
       break;
 
       // UPDATE CANDIDATE
     case 'candidate':
-      console.log('candidate route');
+      console.log('PUT candidate route');
       break;
 
       // UPDATE STARTUP
     case 'startup':
-      console.log('startup route');
+      console.log('PUT startup route');
       break;
 
       // ROUTE NOT FOUND
     default:
-      console.log('route not found:', route);
+      console.log('PUT route not found:', route);
       res.json({
         success: false,
-        message: 'err: route not found',
+        message: 'err: PUT route not found',
         route: route,
         id: id
       });
@@ -98,19 +152,19 @@ module.exports = function (app) {
     console.log(id);
     switch (route) {
     case 'bootcamp':
-      console.log('bootcamp route');
+      console.log('DELETE bootcamp route');
       break;
     case 'candidate':
-      console.log('candidate route');
+      console.log('DELETE candidate route');
       break;
     case 'startup':
-      console.log('startup route');
+      console.log('DELETE startup route');
       break;
     default:
-      console.log('route not found:', route);
+      console.log('DELETE route not found:', route);
       res.json({
         success: false,
-        message: 'err: route not found',
+        message: 'err: DELETE route not found',
         route: route,
         id: id
       });
