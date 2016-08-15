@@ -25,28 +25,28 @@ This will be a project that matches bootcamp students to start- ups. We may use 
 
 ### POST ROUTES
 
-- create bootcamp:	`/bootcamp/create`
+- create bootcamp:	`/api/bootcamp/create`
 
-- create startup:		`/startup/create`
+- create startup:		`/api/startup/create`
 
-- create candidate 	`/candidate/create`
+- create candidate 	`/api/candidate/create`
 
 
 
 ### PUT ROUTES
 
-- update bootcamp:  `/update/bootcamp/[bootcampID]`
+- update bootcamp:  `/api/update/bootcamp/[bootcampID]`
 
-- update candidate: `/update/candidate/[candidateID]`
+- update candidate: `/api/update/candidate/[candidateID]`
 
-- update startup: `/update/startup/[startupID]`
+- update startup: `/api/update/startup/[startupID]`
 
 
 
 ### delete ROUTES
 
-- delete bootcamp:  `/delete/bootcamp/[bootcampID]`
+- delete bootcamp:  `/api/delete/bootcamp/[bootcampID]`
 
-- delete candidate: `/delete/candidate/[candidateID]`
+- delete candidate: `/api/delete/candidate/[candidateID]`
 
-- delete startup: `/delete/startup/[startupID]`
+- delete startup: `/api/delete/startup/[startupID]`
