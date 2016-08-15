@@ -14,7 +14,6 @@ module.exports = function (sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.STRING, // textfield
-      unique: true,
       allowNull: false
     },
     bootcampCourse: {
