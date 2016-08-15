@@ -5,7 +5,7 @@ module.exports = function (app) {
   app.post('/api/create/:route', function (req, res) {
     let body = req.body;
     let route = req.params.route;
-    console.log(body);
+    console.log(`body: ${body}`);
     switch (route) {
 
       // CREATE BOOTCAMP
@@ -45,7 +45,7 @@ module.exports = function (app) {
       console.log('route not found:', route);
       res.json({
         success: false,
-        message: 'err: page not found',
+        message: 'err: route not found',
         route: route
       });
     }
@@ -81,7 +81,7 @@ module.exports = function (app) {
       console.log('route not found:', route);
       res.json({
         success: false,
-        message: 'err: page not found',
+        message: 'err: route not found',
         route: route,
         id: id
       });
@@ -110,7 +110,7 @@ module.exports = function (app) {
       console.log('route not found:', route);
       res.json({
         success: false,
-        message: 'err: page not found',
+        message: 'err: route not found',
         route: route,
         id: id
       });
