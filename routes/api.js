@@ -14,16 +14,16 @@ module.exports = function(app) {
             console.log('POST bootcamp route');
             db.Bootcamp.create({
 
-                name: body.name,
-                logoURL: body.logoURL
+              name: body.name,
+              logoURL: body.logoURL
 
             }).then(function() {
-                db.Bootcamp.findAll({}).then(function(bootcamps) {
-                    res.json({
-                        success: true,
-                        bootcamps: bootcamps
-                    })
+            db.Bootcamp.findAll({}).then(function(bootcamps) {
+                res.json({
+                  success: true,
+                  bootcamps: bootcamps
                 })
+              })
             })
             break;
 
@@ -32,28 +32,29 @@ module.exports = function(app) {
             console.log('POST candidate route');
             db.Candidate.create({
 
-                firstName: body.firstName,
-                lastName: body.lastName,
-                phoneNumber: body.phoneNumber,
-                email: body.email,
-                bootcampCourse: body.bootcampCourse,
-                resumeURL: body.resumeURL,
-                pictureURL: body.pictureURL,
-                city: body.city,
-                state: body.state,
-                courseFinish: body.courseFinish,
-                bio: body.bio,
-                skills: body.skills,
-                BootcampId: parseInt(body.BootcampId)
+              firstName: body.firstName,
+              lastName: body.lastName,
+              phoneNumber: body.phoneNumber,
+              email: body.email,
+              bootcampCourse: body.bootcampCourse,
+              resumeURL: body.resumeURL,
+              pictureURL: body.pictureURL,
+              city: body.city,
+              state: body.state,
+              courseFinish: body.courseFinish,
+              bio: body.bio,
+              skills: body.skills,
+              BootcampId: parseInt(body.BootcampId)
+
             }, {
-                include: [models.Bootcamp]
+              include: [models.Bootcamp]
             }).then(function(candidate) {
-                db.Candidate.findAll({}).then(function(candidates) {
-                    res.json({
-                        success: true,
-                        candidates: candidates
-                    })
+              db.Candidate.findAll({}).then(function(candidates) {
+                res.json({
+                  success: true,
+                  candidates: candidates
                 })
+              })
             })
             break;
 
@@ -62,18 +63,18 @@ module.exports = function(app) {
             console.log('POST startup route');
             db.Startup.create({
 
-                name: body.name,
-                logoURL: body.logoURL,
-                email: body.email,
-                phoneNumber: body.phoneNumber,
+              name: body.name,
+              logoURL: body.logoURL,
+              email: body.email,
+              phoneNumber: body.phoneNumber,
 
             }).then(function() {
-                db.Startup.findAll({}).then(function(startups) {
-                    res.json({
-                        success: true,
-                        startups: startups
-                    })
+              db.Startup.findAll({}).then(function(startups) {
+                res.json({
+                  success: true,
+                  startups: startups
                 })
+              })
             })
             break;
 
@@ -82,18 +83,18 @@ module.exports = function(app) {
             console.log('user route');
             db.User.create({
 
-                email: body.email,
-                password: body.password
+              email: body.email,
+              password: body.password
 
             }).then(function() {
-                db.User.findAll({}).then(function(users) {
-                    console.log(users);
+              db.User.findAll({}).then(function(users) {
+                console.log(users);
 
-                    res.json({
-                        success: true,
-                        users: users
-                    });
+                res.json({
+                  success: true,
+                  users: users
                 });
+              });
             });
             break;
 
@@ -101,9 +102,9 @@ module.exports = function(app) {
           default:
             console.log('POST route not found:', route);
             res.json({
-                success: false,
-                message: 'err: POST route not found',
-                route: route
+              success: false,
+              message: 'err: POST route not found',
+              route: route
             });
       }
 
@@ -118,30 +119,30 @@ module.exports = function(app) {
       console.log(`route: ${route}`);
       switch (route) {
 
-          // UPDATE BOOTCAMP
-          case 'bootcamp':
-              console.log('PUT bootcamp route');
-              break;
+        // UPDATE BOOTCAMP
+        case 'bootcamp':
+          console.log('PUT bootcamp route');
+          break;
 
-          // UPDATE CANDIDATE
-          case 'candidate':
-              console.log('PUT candidate route');
-              break;
+        // UPDATE CANDIDATE
+        case 'candidate':
+          console.log('PUT candidate route');
+          break;
 
-          // UPDATE STARTUP
-          case 'startup':
-              console.log('PUT startup route');
-              break;
+        // UPDATE STARTUP
+        case 'startup':
+          console.log('PUT startup route');
+          break;
 
-          // ROUTE NOT FOUND
-          default:
-              console.log('PUT route not found:', route);
-              res.json({
-                  success: false,
-                  message: 'err: PUT route not found',
-                  route: route,
-                  id: id
-              });
+        // ROUTE NOT FOUND
+        default:
+          console.log('PUT route not found:', route);
+          res.json({
+            success: false,
+            message: 'err: PUT route not found',
+            route: route,
+            id: id
+          });
         }
 
     });
