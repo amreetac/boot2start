@@ -3,7 +3,7 @@ module.exports = function (app) {
   // ==============================================================================
   app.get('/', function (req, res) {
     console.log('index route');
-    res.render('landing');
+    res.render('login');
   });
 
   // GET all bootcamps, candidates or startups
