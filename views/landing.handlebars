@@ -1,16 +1,26 @@
-<!--Set up this file to have the template that Handlebars can render onto
-Also, create a button that will submit the user input into the database.-->
+<!-- Landing page -->
 
-<!-- Stays constant -->
-  <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!doctype html>
+<html ng-app="storeApp">
+  <head>
+    <title>Boot2Start</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/blue.css" class="colors">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body id="home">
+    <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#home">
-            <img id="navlogo" src="img/navlogo-blue.png" alt="microstore" width="122" height="45">
-          </a>
+          
 
         </div>
         <div class="collapse navbar-collapse">
@@ -25,11 +35,7 @@ Also, create a button that will submit the user input into the database.-->
       </div>
     </div>
 
-<!--What will be changing -->
-
     <section id="hero" class="hero-slider light-typo full-height" data-height="600" >
-      <div id="hero-slider" class="owl-carousel owl-theme" data-autoplay="4000" data-navigation="false" data-dots="true" data-transition="fadeOut">
-          
         <div class="item m-center" style="background-image: url(img/01.jpg);">
           <div class="center-box">
             <span class="overlay-bg"></span>
@@ -37,14 +43,13 @@ Also, create a button that will submit the user input into the database.-->
               <div class="row">
                 <div class="col-xs-6">
                   <div class="hero-unit">
-                    <img id="logo" src="img/logo-blue.png" class="img-responsive text-center" alt="shop logo" width="300">
                     <p>About Bootcamps </p>
                     <a class="btn btn-store smooth-scroll" href="#products">Explore</a>
                   </div>
                 </div>
                 <div class="col-xs-6">
                   <div class="hero-unit">
-                    <img id="logo" src="img/logo-blue.png" class="img-responsive text-center" alt="shop logo" width="300">
+                    
                     <p>About Startups </p>
                     <a class="btn btn-store smooth-scroll" href="#products">Explore</a>
                   </div>
@@ -62,14 +67,13 @@ Also, create a button that will submit the user input into the database.-->
               <div class="row">
                 <div class="col-xs-6">
                   <div class="hero-unit">
-                    <img id="logo" src="img/logo-blue.png" class="img-responsive text-center" alt="shop logo" width="300">
                     <p>About Bootcamps </p>
                     <a class="btn btn-store smooth-scroll" href="#products">Explore</a>
                   </div>
                 </div>
                 <div class="col-xs-6">
                   <div class="hero-unit">
-                    <img id="logo" src="img/logo-blue.png" class="img-responsive text-center" alt="shop logo" width="300">
+                    
                     <p>About Startups </p>
                     <a class="btn btn-store smooth-scroll" href="#products">Explore</a>
                   </div>
@@ -87,14 +91,14 @@ Also, create a button that will submit the user input into the database.-->
               <div class="row">
                 <div class="col-xs-6">
                   <div class="hero-unit">
-                    <img id="logo" src="img/logo-blue.png" class="img-responsive text-center" alt="shop logo" width="300">
+                    
                     <p>About Bootcamps </p>
                     <a class="btn btn-store smooth-scroll" href="#products">Explore</a>
                   </div>
                 </div>
                 <div class="col-xs-6">
                   <div class="hero-unit">
-                    <img id="logo" src="img/logo-blue.png" class="img-responsive text-center" alt="shop logo" width="300">
+                  
                     <p>About Startups </p>
                     <a class="btn btn-store smooth-scroll" href="#products">Explore</a>
                   </div>
@@ -105,31 +109,5 @@ Also, create a button that will submit the user input into the database.-->
           </div>
         </div>
     </section>
-
-
-<!--What will be staying constant -->
-    <footer id="main-footer" class="dark-bg light-typo">
-      <div class="container">
-        <p class="pull-left copyright">&copy; MicroStore 2014. <br> Designed by <a href="http://demo.angelostudio.net" target="_blank">Angelo Studio</a>.<br>
-        </p>
-
-        <div class="pull-right paymentMethodImg copyright">
-          <a class="btn btn-store outline" href="#" data-toggle="modal" data-target=".text-modal">Terms & conditions</a>
-        </div>
-      </div>
-    </footer>
-
-    
-    <script type="text/javascript" src="plugins/jquery/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
-    <script type="text/javascript" src="plugins/angular/angular.min.js"></script>
-    <script type="text/javascript" src="plugins/bootstrap/bootstrap.min.js"></script>
-    <script type="text/javascript" src="plugins/countdown/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="plugins/owlcarousel/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="plugins/waitforimages/jquery.waitforimages.min.js"></script> 
-  
-    <script type="text/javascript" src="js/hero-slider.js"></script>
-    <script type="text/javascript" src="js/project-slider.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-
+  </body>
+</html>

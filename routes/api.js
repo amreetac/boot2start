@@ -18,14 +18,14 @@ module.exports = function(app) {
               logoURL: body.logoURL
 
             }).then(function() {
-                db.Bootcamp.findAll({}).then(function(bootcamps) {
-                  res.json({
-                    success: true,
-                    bootcamps: bootcamps
-                  })
+            db.Bootcamp.findAll({}).then(function(bootcamps) {
+                res.json({
+                  success: true,
+                  bootcamps: bootcamps
                 })
               })
-              break;
+            })
+            break;
 
           // CREATE CANDIDATE
           case 'candidate':
@@ -47,7 +47,7 @@ module.exports = function(app) {
               BootcampId: parseInt(body.BootcampId)
 
             }, {
-                include: [models.Bootcamp]
+              include: [models.Bootcamp]
             }).then(function(candidate) {
               db.Candidate.findAll({}).then(function(candidates) {
                 res.json({
@@ -58,47 +58,47 @@ module.exports = function(app) {
             })
             break;
 
-              // CREATE STARTUP
+          // CREATE STARTUP
           case 'startup':
-              console.log('POST startup route');
-              db.Startup.create({
+            console.log('POST startup route');
+            db.Startup.create({
 
-                name: body.name,
-                logoURL: body.logoURL,
-                email: body.email,
-                phoneNumber: body.phoneNumber,
+              name: body.name,
+              logoURL: body.logoURL,
+              email: body.email,
+              phoneNumber: body.phoneNumber,
 
-              }).then(function() {
-                db.Startup.findAll({}).then(function(startups) {
-                  res.json({
-                    success: true,
-                    startups: startups
-                  })
+            }).then(function() {
+              db.Startup.findAll({}).then(function(startups) {
+                res.json({
+                  success: true,
+                  startups: startups
                 })
               })
-              break;
+            })
+            break;
 
-              // CREATE USER
+          // CREATE USER
           case 'user':
-              console.log('user route');
-              db.User.create({
+            console.log('user route');
+            db.User.create({
 
-                email: body.email,
-                password: body.password
+              email: body.email,
+              password: body.password
 
-              }).then(function() {
-                db.User.findAll({}).then(function(users) {
-                    console.log(users);
+            }).then(function() {
+              db.User.findAll({}).then(function(users) {
+                console.log(users);
 
-                  res.json({
-                    success: true,
-                    users: users
-                  });
+                res.json({
+                  success: true,
+                  users: users
                 });
               });
-              break;
+            });
+            break;
 
-              // ROUTE NOT FOUND
+          // ROUTE NOT FOUND
           default:
             console.log('POST route not found:', route);
             res.json({
@@ -106,13 +106,13 @@ module.exports = function(app) {
               message: 'err: POST route not found',
               route: route
             });
-        }
+      }
 
-    });
+  });
 
-    // PUT to bootcamp, startup or candidate
-    // ==============================================================================
-    app.put('/api/update/:route/:id', function(req, res) {
+  // PUT to bootcamp, startup or candidate
+  // ==============================================================================
+  app.put('/api/update/:route/:id', function(req, res) {
       let id = 'id = ' + req.params.id;
       let route = req.params.route;
       console.log(id);
@@ -124,17 +124,17 @@ module.exports = function(app) {
           console.log('PUT bootcamp route');
           break;
 
-            // UPDATE CANDIDATE
+        // UPDATE CANDIDATE
         case 'candidate':
           console.log('PUT candidate route');
           break;
 
-            // UPDATE STARTUP
+        // UPDATE STARTUP
         case 'startup':
-            console.log('PUT startup route');
-            break;
+          console.log('PUT startup route');
+          break;
 
-            // ROUTE NOT FOUND
+        // ROUTE NOT FOUND
         default:
           console.log('PUT route not found:', route);
           res.json({
@@ -150,30 +150,31 @@ module.exports = function(app) {
     // DELETE bootcamp, startup
     // ==============================================================================
     app.delete('/api/delete/:route/:id', function(req, res) {
-      let route = req.params.route;
-      let id = 'id = ' + req.params.id;
-      console.log(`route: ${route}`);
-      console.log(id);
-      switch (route) {
-        case 'bootcamp':
-          console.log('DELETE bootcamp route');
-          break;
-        case 'candidate':
-          console.log('DELETE candidate route');
-          break;
-        case 'startup':
-          console.log('DELETE startup route');
-          break;
-        default:
-          console.log('DELETE route not found:', route);
-          res.json({
-            success: false,
-            message: 'err: DELETE route not found',
-            route: route,
-            id: id
-          });
-      }
+        let route = req.params.route;
+        let id = 'id = ' + req.params.id;
+        console.log(`route: ${route}`);
+        console.log(id);
+        switch (route) {
 
+          case 'bootcamp':
+            console.log('DELETE bootcamp route');
+            break;
+          case 'candidate':
+            console.log('DELETE candidate route');
+            break;
+          case 'startup':
+            console.log('DELETE startup route');
+            break;
+          default:
+            console.log('DELETE route not found:', route);
+            res.json({
+              success: false,
+              message: 'err: DELETE route not found',
+              route: route,
+              id: id
+            });
+
+        }
     });
 
 }
