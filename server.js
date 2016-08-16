@@ -8,13 +8,13 @@ global.db = require('./models');
 app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
+    extended: false
 }));
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
-  defaultLayout: 'main'
+    defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
 
@@ -23,10 +23,14 @@ require('./routes/main.js')(app);
 require('./routes/api.js')(app);
 
 var PORT = process.env.PORT || 3000;
-db.sequelize.sync({
-  force: true
-}).then(function () {
-  app.listen(PORT, function () {
-    console.log("Server running on port %s", PORT);
-  });
-});
+
+db.sequelize.query('SET FOREIGN_KEY_CHECKS = 0')
+    .then(function() {
+        return db.sequelize.sync({
+            force: true
+        })
+    }).then(function() {
+        app.listen(PORT, function() {
+            console.log("Server running on port %s", PORT);
+        });
+    });
