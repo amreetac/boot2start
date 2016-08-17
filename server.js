@@ -4,6 +4,31 @@ var methodOverride = require('method-override');
 var app = express();
 global.db = require('./models');
 
+var AWS = require('aws-sdk');
+const keys = require('./config/keys');
+AWS.config.update(keys.s3);
+var s3 = new AWS.S3();
+console.log(keys.s3);
+
+AWS.config.region = 'us-west-2';
+
+// Create a bucket using bound parameters and put something in it.
+
+var s3bucket = new AWS.S3({params: {Bucket: 'myBucket'}});
+
+// IMPORTANT: Make sure to change the bucket name from "myBucket" above to something unique.
+
+s3bucket.createBucket(function() {
+  var params = {Key: 'myKey', Body: 'Hello!'};
+  s3bucket.upload(params, function(err, data) {
+    if (err) {
+      console.log("Error uploading data: ", err);
+    } else {
+      console.log("Successfully uploaded data to myBucket/myKey");
+    }
+  });
+});
+
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser.json());
@@ -17,6 +42,7 @@ app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
+
 
 // routes
 require('./routes/main.js')(app);
