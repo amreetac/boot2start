@@ -1,18 +1,6 @@
-<!doctype html>
-<html ng-app="storeApp">
-  <head>
-    <title>Boot2Start</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/blue.css" class="colors">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <style>
+<!DOCTYPE html>
+<html>
+    <style>
     /* Full-width input fields */
     input[type=text], input[type=password] {
         width: 100%;
@@ -31,7 +19,7 @@
         margin: 8px 0;
         border: none;
         cursor: pointer;
-        width: 80%;
+        width: 100%;
     }
 
     /* Extra styles for the cancel button */
@@ -128,44 +116,13 @@
         }
     }
     </style>
+<body>
 
-  <body id="home">
-    <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul id="navigation" class="nav navbar-nav navbar-right text-center">
-            <li><a href="#products">Bootcamps</a></li>
-            <li><a href="#about">Startups</a></li>
-            <!-- <li><a href="#testimonial">Testimonials</a></li> -->
-            <li><a href="#orderform">Login/Sign-up</a></li>
-          </ul>
-        </div>
+    <h2>Modal Login Form</h2>
 
-      </div>
-    </div>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login here</button>
 
-    <section id="orderform" class="gray-bg padding-top-bottom" ng-controller="orderController">
-      <div class="container">
-        <header class="section-header text-center">
-
-        <br>
-        <br>
-        <br>
-
-
-          <h2>Login/Sign-up</h2>
-        </header>
-
-        <div class="login">
-       
-       		<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-      <div id="id01" class="modal">
+    <div id="id01" class="modal">
       
       <form class="modal-content animate" action="action_page.php">
         <div class="imgcontainer">
@@ -203,55 +160,5 @@
     }
     </script>
 
-
-                <a href="/users/password/new" class="u-uncoloredLink u-colorGray6 s-vgLeft1 u-fontSize14 js-forgot_password">Forgot password?</a>
-            </div>
-          </form>
-
-          </div>
-
-
-      </div>
-
-     <div class="sidebar">
-            <div id="connect">
-                <h2>Sign-up</h2>
-                  <form action="index.html" method="post" novalidate id="contact-form">
-                  <br>
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8 anima fade-up d1" >
-              <div class="form-group">
-                <label class="control-label" for="contact-name">Name</label>
-                <div class="controls">
-                  <input id="contact-name" name="contactName" placeholder="Your name" class="form-control input-lg requiredField" type="text">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label" for="contact-mail">Email</label>
-                <div class=" controls">
-                  <input id="contact-mail" name="email" placeholder="Your email" class="form-control input-lg requiredField" type="email">
-                </div>
-              </div>
-              <p>
-                <button name="submit" type="submit" class="btn btn-store btn-block">Come on in!</button></p>
-              <input type="hidden" name="submitted" id="submitted3" value="true">
-            </div>
-          </div>
-        </form>
-               
-            </div>
-            </div>
-        </section>
-
-    <footer id="main-footer" class="dark-bg light-typo">
-      <div class="container">
-        <p class="pull-left copyright">&copy; MicroStore 2014. <br> Designed by <a href="http://demo.angelostudio.net" target="_blank">Angelo Studio</a>.<br>
-        </p>
-
-        <div class="pull-right paymentMethodImg copyright">
-        </div>
-      </div>
-    </footer>
-
-  </body>
+</body>
 </html>
