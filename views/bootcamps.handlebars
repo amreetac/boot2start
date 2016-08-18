@@ -1,22 +1,27 @@
 
     <div class = "container">
-            <a class="btn btn-store smooth-scroll" href="#schools">Rutgers Coding Bootcamp</a>
-            <a class="btn btn-store smooth-scroll" href="#schools">General Assembly</a>
-            <a class="btn btn-store smooth-scroll" href="#schools">Metis</a>
-            <a class="btn btn-store smooth-scroll" href="#schools">Galvanize</a>
-            <a class="btn btn-store smooth-scroll" href="#schools">Ada Developers Academy</a>
-            <a class="btn btn-store smooth-scroll" href="#schools">Angelhack</a>
-            <a class="btn btn-store smooth-scroll" href="#schools">Anyone can learn to code</a>
-            <a class="btn btn-store smooth-scroll" href="#schools">App Academy</a>
-            <a class="btn btn-store smooth-scroll" href="#schools">Apprentice</a>
-            <a class="btn btn-store smooth-scroll" href="#schools">Sabio</a>
-            <a class="btn btn-store smooth-scroll" href="#schools">HackerU</a>
-          </div>
-        </div>
+    <div class = "bootcamps">
+
+    <h1> Bootcamps </h1>
+    <ul>
+    {{#each Bootcamp}}
+
+        <li class = "bootlist">
+
+            <form action="bootcamps/update/{{this.id}} method="POST">
+           {{this.name}}
+            </form>
+
+            <img src="{{this.logoURL}}" alt="Bootcamp" id = "bootImage">
+
+        </li>
+    {{/each}}
+    </ul>
+   
+
+    </div>
 
         <a class="btn btn-store smooth-scroll" href="#schools">Can't find yours?</a>
       </div>
-    </section>
     
-    
-   
+  
