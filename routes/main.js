@@ -30,9 +30,9 @@ module.exports = function(app) {
           })
 
           res.json({
-              success: true,
-              bootcamps: bootcampsFiltered
-            })
+            success: true,
+            bootcamps: bootcampsFiltered
+          })
             //res.render('bootcamps');
         })
         break;
