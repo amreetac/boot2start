@@ -58,7 +58,7 @@ module.exports = function(app) {
         })
         break;
 
-        // CREATE STARTUP
+      // CREATE STARTUP
       case 'startup':
         console.log('POST startup route');
         db.Startup.create({
@@ -82,8 +82,8 @@ module.exports = function(app) {
       case 'user-signup':
 
         console.log('user-signup route');
-        var salt = bcrypt.genSaltSync(10);
-        var hash = bcrypt.hashSync(req.body.password, salt);
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(req.body.password, salt);
 
         //creating a user from the email and password provided
         db.User.create({

@@ -37,6 +37,11 @@ module.exports = function(app) {
         })
         break;
 
+      // GET Bootcamp creation page
+      case 'bootcamp':
+        res.render('bootcamp-create');
+        break;
+
       // GET STARTUPS PAGE WITH ALL STARTUPS
       case 'startups':
         console.log('startups route');
