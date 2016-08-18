@@ -11,38 +11,37 @@
       </div>
     </div>
 
-   
+
       <div class="container">
-        
+
           <h2>Login/Sign-up</h2>
         </header>
 
         <div class="login">
-       
+
           <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
       <div id="id01" class="modal">
-      
+
       <form class="modal-content animate" action="action_page.php">
         <div class="imgcontainer">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <img src="" alt="Avatar" class="avatar">
         </div>
 
         <div class="container">
-          <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <label><b>Email</b></label>
+          <input type="text" placeholder="Enter Username" name="email" required>
 
           <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-            
+
+          <input type="password" placeholder="Enter Password" name="password" required>
+
           <button type="submit">Login</button>
           <input type="checkbox" checked="checked"> Remember me
         </div>
 
-        <div class="container" style="background-color:#f1f1f1">
+        <div class="container">
           <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
       </form>
     </div>
@@ -60,7 +59,6 @@
     </script>
 
 
-                <a href="/users/password/new" class="u-uncoloredLink u-colorGray6 s-vgLeft1 u-fontSize14 js-forgot_password">Forgot password?</a>
             </div>
           </form>
 
@@ -77,15 +75,16 @@
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-8 anima fade-up d1" >
               <div class="form-group">
-                <label class="control-label" for="contact-name">Name</label>
-                <div class="controls">
-                  <input id="contact-name" name="contactName" placeholder="Your name" class="form-control input-lg requiredField" type="text">
-                </div>
-              </div>
-              <div class="form-group">
+
                 <label class="control-label" for="contact-mail">Email</label>
                 <div class=" controls">
                   <input id="contact-mail" name="email" placeholder="Your email" class="form-control input-lg requiredField" type="email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="contact-name">Password</label>
+                <div class="controls">
+                  <input id="contact-name" name="password" placeholder="password.." class="form-control input-lg requiredField" type="password">
                 </div>
               </div>
               <p>
@@ -94,9 +93,7 @@
             </div>
           </div>
         </form>
-               
+
             </div>
             </div>
         </section>
-
-  

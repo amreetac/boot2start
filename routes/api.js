@@ -1,5 +1,5 @@
 const models = require('../models');
-bcrypt = require("bcryptjs");
+bcrypt = require("bcrypt");
 module.exports = function(app) {
 
   // POST bootcamp, startup or candidate
@@ -7,7 +7,6 @@ module.exports = function(app) {
   app.post('/api/create/:route', function(req, res) {
     let body = req.body;
     let route = req.params.route;
-    console.log(`body: ${body}`);
     switch (route) {
 
       // CREATE BOOTCAMP
