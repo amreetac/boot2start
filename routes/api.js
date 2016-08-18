@@ -80,6 +80,7 @@ module.exports = function(app) {
 
       // CREATE USER
       case 'user-signup':
+      app.post('/api/create/signup', function(req, res) {
         console.log('user-signup route');
         var salt = bcrypt.genSaltSync(10);
         var hash = bcrypt.hashSync(req.body.password, salt);
@@ -95,9 +96,11 @@ module.exports = function(app) {
          }).catch(function(err) {
           res.json({message: err.message});
          });
+       });
          break;
      // USER Signin
       case 'user-signin':
+       app.post('/api/create/signin', function(req, res) {
             console.log('user-signin route');
             //looking for one user whos password has the email and password submitted
          db.User.findOne({
@@ -123,7 +126,7 @@ module.exports = function(app) {
       }).catch(function(err) {
              res.json(err);
       });
-      
+       });
       break;
 
       // ROUTE NOT FOUND
