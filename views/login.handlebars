@@ -23,7 +23,7 @@
 
       <div id="id01" class="modal">
 
-      <form class="modal-content animate" method="post" action="/api/create/user-signin">
+      <form class="modal-content animate" action="action_page.php">
         <div class="imgcontainer">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
         </div>
@@ -33,6 +33,7 @@
           <input type="text" placeholder="Enter Username" name="email" required>
 
           <label><b>Password</b></label>
+
           <input type="password" placeholder="Enter Password" name="password" required>
 
           <button type="submit">Login</button>
@@ -69,11 +70,12 @@
      <div class="sidebar">
             <div id="connect">
                 <h2>Sign-up</h2>
-                  <form action="/api/create/user-signup" method="post" novalidate id="contact-form">
+                  <form action="index.html" method="post" novalidate id="contact-form">
                   <br>
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-8 anima fade-up d1" >
               <div class="form-group">
+
                 <label class="control-label" for="contact-mail">Email</label>
                 <div class=" controls">
                   <input id="contact-mail" name="email" placeholder="Your email" class="form-control input-lg requiredField" type="email">
