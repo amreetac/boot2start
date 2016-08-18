@@ -17,29 +17,40 @@
                          <div class="col-sm-5">
 
                               <div class="panel panel-default">
-                                <div class="panel-thumbnail"><img src="/assets/example/bg_5.jpg" class="img-responsive"></div>
+
+                                  {{#each Candidate}}
+
                                 <div class="panel-body">
-                                  <p class="lead">First Name, Last Name</p>
+                                  <p class="lead">
+                                    {{this.firstName}}
+                                    {{this.lastName}}
+                                  </p>
+                                </div>
+                                 {{/each}}
+                              </div>
+
+                               <div class="well"> 
+                                   
+                                    <h4>Contact Information</h4>
+                                   <div class="panel-body">
+                                   {{#each Candidate}}
+                                  <p class="lead">
+                                    {{this.phoneNumber}}
+                                    {{this.email}}
+                                  </p>
+
+                                    {{/each}}
                                 </div>
                               </div>
-
-
-                          <div class="well">
-                                   <form class="form-horizontal" role="form">
-                                    <h4>What's New</h4>
-                                     <div class="form-group" style="padding:14px;">
-                                      <textarea class="form-control" placeholder="Update your status"></textarea>
-                                    </div>
-                                    <button class="btn btn-primary pull-right" type="button">Post</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-                                  </form>
-                              </div>
-
 
 
                               <div class="panel panel-default">
                                 <div class="panel-heading"><h4>Experience</h4></div>
                                   <div class="panel-body">
                                     <div class="list-group">
+                                       {{#each Candidate}}
+                                      <a>Resume URL: {{this.resumeURL}}
+                                       {{/each}}
                                       <a>JavaScript</a>
                                       <a>HTML/CSS</a>
                                       <a>REACT</a>
@@ -52,8 +63,9 @@
                               <div class="panel panel-default">
                                  <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>EDUCATION</h4></div>
                                   <div class="panel-body">
-
-
+                                   {{#each Candidate}}
+                                    <li> <a> Bootcamp Course {{this.bootcampCourse}} </a> </li>
+                                    {{/each}}
                                     <hr>
                                     <ul class="list-unstyled">
                                     <li><a>Dashboard</a></li>
