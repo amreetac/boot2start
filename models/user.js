@@ -3,6 +3,7 @@ module.exports = function (sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING, // textfield
       allowNull: false,
+      unique: true,
       len: [3]
     },
     password: {
