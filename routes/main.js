@@ -1,7 +1,16 @@
 module.exports = function(app) {
   const express = require('express');
   const aws = require('aws-sdk');
-  const S3_BUCKET = 'boot2start'
+  const S3_BUCKET = 'boot2start';
+  const bootcampsController = require('../controllers/bootcamps');
+  const bootcampController = require('../controllers/bootcamp');
+  const s3Controller = require('../controllers/s3');
+  const controllers = {
+    bootcamps: bootcampsController,
+    bootcamp: bootcampController,
+    signS3: s3Controller
+  }
+
 
   // GET landing page
   // ==============================================================================
@@ -14,6 +23,7 @@ module.exports = function(app) {
   // ==============================================================================
   app.get('/:route', function(req, res) {
     let route = req.params.route;
+    let controller = controllers[route];
     console.log(`route: ${route}`);
 
 
@@ -21,17 +31,16 @@ module.exports = function(app) {
 
       // GET ALL BOOTCAMPS
       case 'bootcamps':
-        console.log('bootcamps route');
-
-        db.Bootcamp.findAll({}).then(function (bootcamps) {
-          console.log(`bootcamps: ${JSON.stringify(bootcamps)}`);
+        controllers[route].get(function (bootcamps) {
           res.render('bootcamps', { bootcamp:  bootcamps });
         });
         break;
 
       // GET Bootcamp creation page
       case 'bootcamp':
-        res.render('bootcamp-create');
+        controllers[route].get(null, function () {
+          res.render('bootcamp-create');
+        })
         break;
 
       // GET STARTUPS PAGE WITH ALL STARTUPS
@@ -47,29 +56,11 @@ module.exports = function(app) {
         break;
 
       // GET SIGNED URL FRROM S3
-      case 'sign-s3':
-        const s3 = new aws.S3();
-        const fileName = req.query['file-name'];
-        const fileType = req.query['file-type'];
-        const s3Params = {
-          Bucket: S3_BUCKET,
-          Key: fileName,
-          Expires: 60,
-          ContentType: fileType,
-          ACL: 'public-read'
-        };
+      case 'signS3':
+        controllers[route].get(req.query, (signedRequest, err) => {
+          if (err) res.end();
 
-        s3.getSignedUrl('putObject', s3Params, (err, data) => {
-          if(err){
-            console.log(err);
-            return res.end();
-          }
-          console.log(data);
-          const returnData = {
-            signedRequest: data,
-            url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
-          };
-          res.write(JSON.stringify(returnData));
+          res.write(JSON.stringify(signedRequest));
           res.end();
         });
         break;

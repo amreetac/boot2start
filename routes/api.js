@@ -1,5 +1,11 @@
-const models = require('../models');
 bcrypt = require("bcrypt");
+const bootcampController = require('../controllers/bootcamp');
+const candidateController = require('../controllers/candidate');
+const controllers = {
+  bootcamp: bootcampController,
+  candidate: candidateController
+}
+
 module.exports = function(app) {
 
   // POST ROUTES
@@ -11,49 +17,19 @@ module.exports = function(app) {
 
       // CREATE BOOTCAMP
       case 'bootcamp':
-        console.log('POST bootcamp route');
-        db.Bootcamp.create({
-
-          name: body.name,
-          logoURL: body.logoURL
-
-        }).then(function() {
-
+        controllers[route].post(body, () => {
           res.redirect('/bootcamps');
-
         })
         break;
 
       // CREATE CANDIDATE
       case 'candidate':
-        console.log('POST candidate route');
-        console.log(`body.BootcampId: ------ ${body.BootcampId}`);
-        db.Candidate.create({
-
-          firstName: body.firstName,
-          lastName: body.lastName,
-          phoneNumber: String(body.phoneNumber),
-          email: body.email,
-          bootcampCourse: body.bootcampCourse,
-          resumeURL: body.resumeURL,
-          pictureURL: body.pictureURL,
-          city: body.city,
-          state: body.state,
-          courseFinish: body.courseFinish,
-          bio: body.bio,
-          skills: body.skills,
-          BootcampId: parseInt(body.bootcampId)
-
-        }, {
-          include: [models.Bootcamp]
-        }).then(function(candidate) {
-          db.Candidate.findAll({}).then(function(candidates) {
-            res.json({
-              success: true,
-              candidates: candidates
-            })
-          })
-        })
+        controllers[route].post(body, (candidate) => {
+          res.json({
+            success: true,
+            candidate: candidate
+          });
+        });
         break;
 
       // CREATE STARTUP
