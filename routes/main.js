@@ -3,7 +3,7 @@ module.exports = function(app) {
   // ==============================================================================
   app.get('/', function(req, res) {
     console.log('index route');
-    res.render('login');
+    res.render('landing');
   });
 
   // GET all bootcamps, candidates or startups
@@ -17,7 +17,7 @@ module.exports = function(app) {
       case 'bootcamps':
         console.log('bootcamps route');
         db.Bootcamp.findAll({}).then(function(bootcamps) {
-          console.log(`bootcamps: ${bootcamps}`);
+
           // filter out dates
           let bootcampsFiltered = [];
           bootcamps.map(function(bootcamp) {
@@ -28,12 +28,14 @@ module.exports = function(app) {
             };
             bootcampsFiltered.push(curBootcamp);
           })
+          db.Bootcamp.findAll({}).then(function (bootcamps) {
 
-          res.json({
-            success: true,
-            bootcamps: bootcampsFiltered
+            console.log(`bootcamps: ${JSON.stringify(bootcamps)}`);
+
+
+            res.render('bootcamps', { bootcamp:  bootcamps });
           })
-            //res.render('bootcamps');
+
         })
         break;
 
@@ -90,6 +92,20 @@ module.exports = function(app) {
       case 'candidate':
         console.log('candidate route');
         break;
+      case 'candidate-create':
+        console.log('create-candidates route');
+        res.render('create-profile', { bootcampId: id });
+        break;
+      case 'candidates':
+        console.log('candidates route');
+        db.Candidate.findAll({ where: { id: id }})
+        .then(function (candidates) {
+          res.render('candidates', {
+            candidate: candidates,
+            bootcampId: id
+          });
+        });
+        break;
       case 'startup':
         console.log('startup route');
         break;
@@ -97,7 +113,7 @@ module.exports = function(app) {
         console.log('route not found:', route);
         res.json({
           succes: false,
-          message: 'err: page not found',
+          message: 'err: page not found in /:route/:id ',
           route: route,
           id: id
         });

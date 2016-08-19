@@ -2,26 +2,23 @@
     <div class = "container">
     <div class = "bootcamps">
 
-    <h1> Bootcamps </h1>
+    <h1>Bootcamps</h1>
     <ul>
-    {{#each Bootcamp}}
-
+    {{#each bootcamp}}
+    <div>
         <li class = "bootlist">
-
-            <form action="bootcamps/update/{{this.id}} method="POST">
-           {{this.name}}
-            </form>
-
-            <img src="{{this.logoURL}}" alt="Bootcamp" id = "bootImage">
-
+            <a href="/candidates/{{this.id}}">
+                <h2>{{this.name}}</h2>
+                <img src="{{this.logoURL}}" alt="Bootcamp" width="150px" id="bootImage">
+            </a>
         </li>
+    </div>
+
     {{/each}}
     </ul>
-   
+
 
     </div>
 
-        <a class="btn btn-store smooth-scroll" href="/api/create/getbootcamp">Create a bootcamp</a>
+        <a class="btn btn-store smooth-scroll" href="/bootcamp">Create a bootcamp</a>
       </div>
-    
-  
