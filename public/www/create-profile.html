@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <h1>Edit your account</h1>
-    <hr>
-    <h2>Your avatar</h2>
+
+<body>
+  <h1>Edit your account</h1>
+  <hr>
+  <h2>Your avatar</h2>
+  <!-- dont remove -->
+  <input type="file" id="file-input">
+  <p id="status">Please select a file</p>
+  <img style="border:1px solid gray;width:300px;" id="preview" src="/images/default.png">
+  <h2>Your information</h2>
+  <form method="POST" action="/api/create/candidate">
+    <input type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png">
     <!-- dont remove -->
-    <input type="file" id="file-input">
-    <p id="status">Please select a file</p>
-    <img style="border:1px solid gray;width:300px;"  id="preview" src="/images/default.png">
-    <h2>Your information</h2>
-    <form method="POST" action="/api/create/candidate">
-      <input type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png">
-      <!-- dont remove -->
-      <input type="text" name="username" placeholder="Username"><br><br>
-     
-      <input type="text" name="first-name" placeholder="First Name"><br><br>
-    
-      <input type="text" name="last-name" placeholder="Last Name"><br><br>
-      <hr>
-      <input type="text" name="phone-number" placeholder="Phone Number"><br><br>
-   
-      <input type="text" name="e-mail" placeholder="E-Mail"><br><br>
-  
-      <input type="text" name="finsh-bootcamp" placeholder="Bootcamp Completion"><br><br>
-  
-     <div class="container">
-  
-      <p>About Me:</p>
-      <label for="about-me"></label>
-      <textarea class="form-control" rows="8" id="about-me" placeholder= "Tell us about yourself..."></textarea>
+    <input type="text" name="username" placeholder="Username"><br><br>
 
-      <p>Skills:</p>
-      <label for="skills"></label>
-      <textarea class="form-control" rows="8" id="skills"></textarea>
+    <input type="text" name="first-name" placeholder="First Name"><br><br>
 
-    </div>
-    <br>
+    <input type="text" name="last-name" placeholder="Last Name"><br><br>
+    <hr>
+    <input type="text" name="phone-number" placeholder="Phone Number"><br><br>
+
+    <input type="text" name="e-mail" placeholder="E-Mail"><br><br>
+
+    <input type="text" name="finsh-bootcamp" placeholder="Bootcamp Completion"><br><br>
+
+    <div class="container">
+
+      <div class="s-grid s-vgBottom1">
+        <div class="s-grid-colMd7 s-form-sideLabelMd s-vgBottom0_5 u-textAlignRightMdUp u-fontWeight500">
+          About Me:
+        </div>
+        <div class="s-grid-colMd1">
+          <textarea class="autogrow full-width-input" cols="40" id="forms_job_listing_description" name="forms_job_listing[description]" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="s-grid s-vgBottom2">
+        <div class="s-grid-colMd7 s-form-sideLabelMd s-vgBottom0_5 u-textAlignRightMdUp u-fontWeight500">
+          Skills:
+        </div>
+        <div class="s-grid-colMd2">
+          <textarea class="autogrow full-width-input" cols="40" id="forms_job_listing_description" name="forms_job_listing[description]" rows="3"></textarea>
+        </div>
+      </div>
+      <br>
 
       <h2>Save changes</h2>
       <input type="submit" value="Update profile">
-    </form>
-    <script>
+  </form>
+  <script>
     /*
       Function to carry out the actual PUT request to S3 using the signed request from the app.
     */
@@ -100,6 +109,7 @@
     (() => {
         document.getElementById('file-input').onchange = initUpload;
     })();
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
