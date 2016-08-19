@@ -1,35 +1,41 @@
 <h1>Edit your account</h1>
     <hr>
-    <h2>Your avatar</h2>
     <!-- dont remove -->
-    <input type="file" id="file-input">
-    <p id="status">Please select a file</p>
-    <img style="border:1px solid gray;width:300px;"  id="preview" src="/images/default.png">
+    <h2>Your Picture</h2>
+    <input type="file" id="picture-input">
+    <p id="status">Please select a picture</p>
+    <h2>Your Resume</h2>
+    <input type="file" id="resume-input">
+    <p id="status">Please select a pdf</p>
+    <img style="border:1px solid gray;width:300px;" width="300px"  id="preview" src="/images/default.png">
     <h2>Your information</h2>
     <form method="POST" action="/api/create/candidate">
-      <input type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png">
+        <input type="hidden"  name="bootcampId" value="{{this.bootcampId}}"/>
+      <input type="hidden" id="picture-url" name="pictureURL" value="/images/default.png">
+        <input type="hidden" id="resume-url" name="resumeURL" value="">
       <!-- dont remove -->
-      <input type="text" name="username" placeholder="Username"><br><br>
-     
-      <input type="text" name="first-name" placeholder="First Name"><br><br>
-    
-      <input type="text" name="last-name" placeholder="Last Name"><br><br>
+
+      <input type="text" name="firstName" placeholder="First Name"><br><br>
+
+      <input type="text" name="lastName" placeholder="Last Name"><br><br>
       <hr>
-      <input type="text" name="phone-number" placeholder="Phone Number"><br><br>
-   
-      <input type="text" name="e-mail" placeholder="E-Mail"><br><br>
-  
-      <input type="text" name="finsh-bootcamp" placeholder="Bootcamp Completion"><br><br>
-  
+      <input type="text" name="phoneNumber" placeholder="Phone Number"><br><br>
+
+      <input type="text" name="email" placeholder="E-Mail"><br><br>
+<input type="text" name="city" placeholder="City"><br><br>
+<input type="text" name="state" placeholder="State"><br><br>
+        <input type="text" name="bootcampCourse" placeholder="Bootcamp Course"><br><br>
+      <input type="text" name="courseFinish" placeholder="Bootcamp Completion"><br><br>
+
      <div class="container">
-  
+
       <p>About Me:</p>
       <label for="about-me"></label>
-      <textarea class="form-control" rows="8" id="about-me" placeholder= "Tell us about yourself..."></textarea>
+      <textarea class="form-control" rows="8" id="about-me" name="bio" placeholder= "Tell us about yourself..."></textarea>
 
       <p>Skills:</p>
       <label for="skills"></label>
-      <textarea class="form-control" rows="8" id="skills"></textarea>
+      <textarea class="form-control" rows="8" id="skills" name="skills"></textarea>
 
     </div>
     <br>
@@ -37,4 +43,3 @@
       <h2>Save changes</h2>
       <input type="submit" value="Update profile">
     </form>
-    

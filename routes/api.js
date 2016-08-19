@@ -18,23 +18,21 @@ module.exports = function(app) {
           logoURL: body.logoURL
 
         }).then(function() {
-          db.Bootcamp.findAll({}).then(function(bootcamps) {
-            res.json({
-              success: true,
-              bootcamps: bootcamps
-            })
-          })
+
+          res.redirect('/bootcamps');
+
         })
         break;
 
       // CREATE CANDIDATE
       case 'candidate':
         console.log('POST candidate route');
+        console.log(`body.BootcampId: ------ ${body.BootcampId}`);
         db.Candidate.create({
 
           firstName: body.firstName,
           lastName: body.lastName,
-          phoneNumber: body.phoneNumber,
+          phoneNumber: String(body.phoneNumber),
           email: body.email,
           bootcampCourse: body.bootcampCourse,
           resumeURL: body.resumeURL,
@@ -44,7 +42,7 @@ module.exports = function(app) {
           courseFinish: body.courseFinish,
           bio: body.bio,
           skills: body.skills,
-          BootcampId: parseInt(body.BootcampId)
+          BootcampId: parseInt(body.bootcampId)
 
         }, {
           include: [models.Bootcamp]
