@@ -2,7 +2,7 @@ const models = require('../models');
 bcrypt = require("bcrypt");
 module.exports = function(app) {
 
-  // POST bootcamp, startup or candidate
+  // POST ROUTES
   // ==============================================================================
   app.post('/api/create/:route', function(req, res) {
     let body = req.body;
@@ -76,7 +76,7 @@ module.exports = function(app) {
         })
         break;
 
-       // CREATE USER
+      // CREATE USER
       case 'user-signup':
 
         console.log('user-signup route');
@@ -94,9 +94,9 @@ module.exports = function(app) {
          }).catch(function(err) {
           res.json({message: err.message});
          });
-
          break;
-     // USER Signin
+
+     // USER SIGNIN
       case 'user-signin':
 
         console.log('user-signin route');
@@ -128,7 +128,6 @@ module.exports = function(app) {
               err: err
             });
         });
-
         break;
 
       // ROUTE NOT FOUND
@@ -143,7 +142,7 @@ module.exports = function(app) {
 
   });
 
-  // PUT to bootcamp, startup or candidate
+  // PUT ROUTES
   // ==============================================================================
   app.put('/api/update/:route/:id', function(req, res) {
     let id = 'id = ' + req.params.id;
@@ -180,7 +179,7 @@ module.exports = function(app) {
 
   });
 
-  // DELETE bootcamp, startup
+  // DELETE ROUTES
   // ==============================================================================
   app.delete('/api/delete/:route/:id', function(req, res) {
     let route = req.params.route;

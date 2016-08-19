@@ -10,36 +10,23 @@ module.exports = function(app) {
     res.render('landing');
   });
 
+  // GET SINGLE SLUG ROUTES
   // ==============================================================================
   app.get('/:route', function(req, res) {
     let route = req.params.route;
     console.log(`route: ${route}`);
 
-    // GET BOOTCAMPS ALL BOOTCAMPS
+
     switch (route) {
+
+      // GET ALL BOOTCAMPS
       case 'bootcamps':
         console.log('bootcamps route');
-        db.Bootcamp.findAll({}).then(function(bootcamps) {
 
-          // filter out dates
-          let bootcampsFiltered = [];
-          bootcamps.map(function(bootcamp) {
-            let curBootcamp = {
-              name: bootcamp.name,
-              logoURL: bootcamp.logoURL,
-              bootcampId: bootcamp.id
-            };
-            bootcampsFiltered.push(curBootcamp);
-          })
-          db.Bootcamp.findAll({}).then(function (bootcamps) {
-
-            console.log(`bootcamps: ${JSON.stringify(bootcamps)}`);
-
-
-            res.render('bootcamps', { bootcamp:  bootcamps });
-          })
-
-        })
+        db.Bootcamp.findAll({}).then(function (bootcamps) {
+          console.log(`bootcamps: ${JSON.stringify(bootcamps)}`);
+          res.render('bootcamps', { bootcamp:  bootcamps });
+        });
         break;
 
       // GET Bootcamp creation page
@@ -59,6 +46,7 @@ module.exports = function(app) {
         res.render('login');
         break;
 
+      // GET SIGNED URL FRROM S3
       case 'sign-s3':
         const s3 = new aws.S3();
         const fileName = req.query['file-name'];
@@ -85,6 +73,8 @@ module.exports = function(app) {
           res.end();
         });
         break;
+
+      // ROUNTE NOT FOUND SEND ERROR
       default:
         console.log('route not found:', route);
         res.json({
@@ -96,6 +86,7 @@ module.exports = function(app) {
 
   });
 
+  // GET DOUBLE SLUG ROUTES
   // ==============================================================================
   app.get('/:route/:id', function(req, res) {
     let route = req.params.route;
@@ -104,29 +95,21 @@ module.exports = function(app) {
     console.log(`id: ${id}`);
 
     switch (route) {
-      case 'bootcamp':
-        console.log('bootcamp route');
-        db.Bootcamp.findOne({
-            where: {
-              id: id
-            }
-          })
-          .then(function(bootcamp) {
-            res.json({
-              success: true,
-              bootcamp: bootcamp
-            })
-          });
-        break;
+
+      // GET CANDIDATE
       case 'candidate':
-        console.log('candidate route');
+        console.log('GET candidate route');
         break;
+
+      //GET CANDIDATE CREATION PAGE
       case 'candidate-create':
-        console.log('create-candidates route');
+        console.log('GET create-candidates route');
         res.render('create-profile', { bootcampId: id });
         break;
+
+      // GET ALL CANDIDATS FROM A BOOTCAMP
       case 'candidates':
-        console.log('candidates route');
+        console.log('GET candidates route');
         db.Candidate.findAll({ where: { id: id }})
         .then(function (candidates) {
           res.render('candidates', {
@@ -135,9 +118,13 @@ module.exports = function(app) {
           });
         });
         break;
+
+      // GET STARTUP
       case 'startup':
-        console.log('startup route');
+        console.log('GET startup route');
         break;
+
+      // NO ROUTE FOUND SEND ERROR
       default:
         console.log('route not found:', route);
         res.json({
