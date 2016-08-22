@@ -77,7 +77,7 @@ module.exports = function(app) {
 
         console.log('user-signin route');
         //looking for one user whos password has the email and password submitted
-        db.User.findOne({
+        /*db.User.findOne({
         where: {email: req.body.email} }).then(function(dbUser) {
          //if no user is found, we'll send back a message saying so
           if (!dbUser) {
@@ -104,7 +104,14 @@ module.exports = function(app) {
               err: err
             });
         });
+*/
+      app.post('/login',
+        passport.authenticate('local', { successRedirect: '/bootcamps',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+);
         break;
+
 
       // ROUTE NOT FOUND
       default:
