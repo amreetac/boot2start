@@ -11,8 +11,8 @@
     {{#each candidate}}
     <div>
         <li class = "bootlist">
-            <a href="/candidates/{{this.id}}">
-                <h2>{{this.name}}</h2>
+            <a href="/candidate/{{this.id}}">
+                <h2>{{this.firstName}} {{this.lastName}}</h2>
                 <img src="{{this.pictureURL}}" alt="{{this.firstName}} {{this.lastName}}'s picture" width="150" id="bootImage">
             </a>
         </li>
