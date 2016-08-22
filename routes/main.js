@@ -90,6 +90,10 @@ module.exports = function(app) {
       // GET CANDIDATE
       case 'candidate':
         console.log('GET candidate route');
+        db.Candidate.findOne({ where: { id: id }})
+        .then(function(candidate) {
+          res.render('profilepage', {candidate: candidate});
+        })
         break;
 
       //GET CANDIDATE CREATION PAGE
@@ -101,7 +105,7 @@ module.exports = function(app) {
       // GET ALL CANDIDATS FROM A BOOTCAMP
       case 'candidates':
         console.log('GET candidates route');
-        db.Candidate.findAll({ where: { id: id }})
+        db.Candidate.findAll({ where: { bootcampId: id }})
         .then(function (candidates) {
           res.render('candidates', {
             candidate: candidates,

@@ -25,10 +25,7 @@ module.exports = function(app) {
       // CREATE CANDIDATE
       case 'candidate':
         controllers[route].post(body, (candidate) => {
-          res.json({
-            success: true,
-            candidate: candidate
-          });
+          res.render('profilepage', { candidate: candidate });
         });
         break;
 
