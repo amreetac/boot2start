@@ -1,4 +1,4 @@
-bcrypt = require("bcrypt");
+bcrypt = require("bcrypt-nodejs");
 const bootcampController = require('../controllers/bootcamp');
 const candidateController = require('../controllers/candidate');
 const controllers = {
@@ -57,7 +57,7 @@ module.exports = function(app) {
 
         console.log('user-signup route');
         const salt = bcrypt.genSaltSync(10);
-        const hash = bcrypt.hashSync(req.body.password, salt);
+        const hash = bcrypt.hashSync(body.password, salt);
 
         //creating a user from the email and password provided
         db.User.create({

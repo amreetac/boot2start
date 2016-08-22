@@ -22,26 +22,15 @@
     "url": "https://github.com/amreetac/boot2start/issues"
   },
   "homepage": "https://github.com/amreetac/boot2start#readme",
-  "devDependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.14.0",
-    "method-override": "^2.3.6",
-    "mysql": "^2.11.1",
-    "sequelize": "^3.24.0",
-    "sequelize-cli": "^2.4.0"
-  },
   "dependencies": {
     "aws-sdk": "^2.5.1",
-    "bcrypt": "^0.8.7",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.14.0",
     "method-override": "^2.3.6",
     "mysql": "^2.11.1",
-    "python": "0.0.4",
     "sequelize": "^3.24.0"
   }
 }
