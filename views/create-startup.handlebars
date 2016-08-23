@@ -1,0 +1,180 @@
+
+  <h1>Edit your account</h1>
+  <hr>
+  <h2>Your Logo</h2>
+  <!-- dont remove -->
+  <input type="file" id="file-input">
+  <p id="status">Please select a file</p>
+  <img style="border:1px solid gray;width:300px;" id="preview" src="/images/default.png">
+  <h2>Your information</h2>
+  <form method="POST" action="/api/create/candidate">
+    <input type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png">
+    <!-- dont remove -->
+    <input type="text" name="startup" placeholder="Name of StartUp"><br><br>
+    <hr>
+    <input type="text" name="phone-number" placeholder="Phone Number"><br><br>
+
+    <input type="text" name="e-mail" placeholder="E-Mail"><br><br>
+
+    <input type="text" name="website" placeholder="Company Website"><br><br>
+
+    <input type="text" name="location" placeholder="Location"><br><br>
+
+    <input type="text" name="markets" placeholder="Markets"><br><br>
+
+
+    <h2 class="s-h5 s-vgBorderBottom1 s-vgBottom2 s-vgTop3">
+Job Details
+</h2>
+    <div class="s-grid s-vgBottom1">
+      <div class="s-grid-colMd7 s-form-sideLabelMd s-vgBottom0_5 u-textAlignRightMdUp u-fontWeight500">
+        Job Title
+      </div>
+      <input type="text" name="jobtitle" placeholder="Job Title"><br><br>
+    </div>
+    <div class="s-grid s-vgBottom1">
+      <div class="s-grid-colMd7 s-form-sideLabelMd s-vgBottom0_5 u-textAlignRightMdUp u-fontWeight500">
+        Description
+      </div>
+      <div class="s-grid-colMd14">
+        <textarea class="autogrow full-width-input" cols="40" id="forms_job_listing_description" name="forms_job_listing[description]" rows="3"></textarea>
+        <div class="character_counter s-vgTop0_5" data-max="5000">
+          <div class="_a dcl50 ffm36 character_counter_template ">
+            <span class="current">0</span>
+            <span class="separator">/</span>
+            <span class="max">5000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="s-grid s-vgBottom1">
+      <div class="s-grid-colMd7 s-form-sideLabelMd s-vgBottom0_5 u-textAlignRightMdUp u-fontWeight500">
+        Job Type
+      </div>
+      <div class="s-grid-colMd14">
+        <select class="js-job-type s-form--widthAuto" id="forms_job_listing_job_type" name="forms_job_listing[job_type]"><option value="full-time" selected="selected">Full-time Employee</option>
+<option value="contract">Contractor</option>
+<option value="internship">Intern</option>
+<option value="cofounder">Co-Founder</option></select>
+        <div class="s-vgLeft0_5 u-hiddenSmOnly u-inlineBlock"></div>
+        <div class="s-vgBottom0_5 u-hiddenMdUp"></div>
+
+      </div>
+    </div>
+    <div class="location s-grid s-vgBottom1">
+      <div class="s-grid-colMd7 s-form-sideLabelLg u-textAlignRightMdUp u-fontWeight500">
+        Location
+      </div>
+      <input class="js-tagger-input u-block location-tagger-text ui-autocomplete-input" id="job_listing_location" name="job_listing_location" placeholder="e.g. San Francisco" type="text" 
+
+
+          <div class="s-grid-colSm12">
+            <div class="u-fontSize14 u-fontWeight400">
+              Experience
+            </div>
+          </div>
+          <div class="s-grid-colSm12">
+            <div class="u-fontSize14 u-fontWeight200 u-colorGray8 importance-header js-experience-importance-header u-hidden">
+
+            </div>
+          </div>
+        </div>
+        <div class="js-experience-sorts"></div>
+        <div class="s-grid s-vgPadTop0_5">
+          <div class="s-grid-colMd8 s-form">
+            <select class="js-experience-type-select experience-type-select u-colorGray8">
+<option disabled="disabled" selected="selected" value="select">Add Experience Type</option>
+<option value="software_experience">Software</option>
+<option value="design_experience">Design</option>
+</select>
+          </div>
+        </div>
+      </div>
+      <div class="s-vgBottom1 js-major-sort major-sort">
+        <div class="s-grid">
+          <div class="s-grid-colSm12">
+            <div class="u-fontSize14 u-fontWeight400">
+              Education
+            </div>
+          </div>
+          <div class="s-grid-colSm12">
+            <div class="u-fontSize14 u-fontWeight200 u-colorGray8 importance-header js-major-importance-header u-hidden">
+
+            </div>
+          </div>
+        </div>
+        <div class="js-major-sorts"></div>
+        <div class="s-grid s-vgPadTop0_5">
+          <div class="s-grid-colMd8 s-form">
+            <select class="js-major-type-select major-type-select u-colorGray8">
+<option disabled="disabled" selected="selected" value="select">Add Major</option>
+<option value="software_major">Software</option>
+<option value="design_major">Design</option>
+</select>
+          </div>
+        </div>
+      </div>
+      <div class="js-skills-sort skills-sort">
+        <div class="s-grid">
+          <div class="s-grid-colSm12">
+            <div class="u-fontSize14 u-fontWeight400">
+              Skills
+            </div>
+          </div>
+          <div class="s-grid-colSm12">
+            <div class="u-fontSize14 u-fontWeight200 u-colorGray8 importance-header js-skills-importance-header u-hidden">
+
+            </div>
+          </div>
+        </div>
+        <div class="js-skill-sorts"></div>
+        <div class="s-grid s-vgPadTop0_5">
+          <div class="s-grid-colSm8">
+            <table class="sort-box skill-add-text-box u-colorGray9">
+              <tbody>
+                <tr>
+                  <td class="skill-add u-textAlignCenter">+</td>
+                  <td class="skill-textbox">
+                    <input class="js-add-skill ui-autocomplete-input" placeholder="Add skill" type="text" autocomplete="off">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="s-grid s-vgBottom1 s-vgTop2 js-new-startup-fields  s-vgBorderTop1 s-vgPadTop2">
+      <div class="s-grid-colMd7 s-form-sideLabelMd s-vgBottom0_5 u-textAlignRightMdUp u-fontWeight500 u-hiddenSmOnly">
+        &nbsp;
+      </div>
+      <div class="s-grid-colMd14">
+        <div class="js-input-container">
+          <input name="forms_job_listing[terms_of_service]" type="hidden" value="0"><input id="forms_job_listing_terms_of_service" name="forms_job_listing[terms_of_service]" type="checkbox" value="1">
+          <label>I have read and accepted the
+<a>Guidelines</a>
+and
+<a>Terms of Service</a>
+</label></div>
+      </div>
+    </div>
+    <div class="s-vgBorderTop2 s-vgTop2"></div>
+    <div class="s-grid">
+      <div class="s-grid-colMd7 s-form-sideLabelMd s-vgBottom0_5 u-textAlignRightMdUp u-fontWeight500 u-hiddenSmOnly">
+        &nbsp;
+      </div>
+
+    </div>
+    </div>
+    </div>
+  </form>
+
+
+  <div class="container">
+
+    <h2>Save changes</h2>
+    <input type="submit" value="Update profile">
+    </form>
+    
