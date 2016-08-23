@@ -55,6 +55,8 @@ module.exports = function(app) {
         res.render('login');
         break;
 
+      
+
       // GET SIGNED URL FRROM S3
       case 'signS3':
         controllers[route].get(req.query, (signedRequest, err) => {

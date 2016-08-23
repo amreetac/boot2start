@@ -102,11 +102,12 @@ module.exports = function(app) {
             });
         });
 */
-      app.post('/login',
+      break;
+
+      case "login":
         passport.authenticate('local', { successRedirect: '/bootcamps',
                                    failureRedirect: '/login',
                                    failureFlash: true })
-);
         break;
 
 
