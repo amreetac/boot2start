@@ -49,7 +49,8 @@ module.exports = function(app) {
         })
         break;
 
-      // CREATE USER
+      // CREATE USER 
+      
       case 'user-signup':
 
         console.log('user-signup route');
@@ -102,9 +103,6 @@ module.exports = function(app) {
             });
         });
 */
-      break;
-
-      case "login":
         passport.authenticate('local', { successRedirect: '/bootcamps',
                                    failureRedirect: '/login',
                                    failureFlash: true })
