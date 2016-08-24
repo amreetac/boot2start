@@ -1,11 +1,30 @@
-bcrypt = require("bcrypt-nodejs");
+var bcrypt = require("bcrypt-nodejs");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var session = require("express-session");
+
 const bootcampController = require('../controllers/bootcamp');
 const candidateController = require('../controllers/candidate');
+//const passport = require('../controllers/candidate');
 const controllers = {
   bootcamp: bootcampController,
   candidate: candidateController
 }
 
+passport.use(new LocalStrategy(
+  function(email, password, done) {
+    User.findOne({ username: email }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 module.exports = function(app) {
 
   // POST ROUTES
@@ -52,6 +71,7 @@ module.exports = function(app) {
       // CREATE USER 
       
       case 'user-signup':
+      console.log(req.body);
 
         console.log('user-signup route');
         const salt = bcrypt.genSaltSync(10);
@@ -63,13 +83,21 @@ module.exports = function(app) {
           password: hash
          //sending the newly created user to the client
         }).then(function(dbUser) {
+          //console.log("11111");
+          //passport.authenticate('local')(req, res, function () {
+                //res.redirect('/bootcamps');
+          //console.log("123e4");
           res.json(dbUser.dataValues);
+        
            //if there are any errors creating our user, we will gracefully catch the error send the error to the client instead of throwing it (which would crash our server)
          }).catch(function(err) {
           res.json({message: err.message});
          });
-         break;
+         return;
+        break;
 
+
+       
      // USER SIGNIN
       case 'user-signin':
 
@@ -103,11 +131,7 @@ module.exports = function(app) {
             });
         });
 */
-        passport.authenticate('local', { successRedirect: '/bootcamps',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
-        break;
-
+       
 
       // ROUTE NOT FOUND
       default:
