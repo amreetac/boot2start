@@ -1,6 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+
+var passport = require('passport')
+, LocalStrategy = require('passport-local').Strategy;
 var app = express();
 global.db = require('./models');
 
@@ -19,8 +22,6 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
