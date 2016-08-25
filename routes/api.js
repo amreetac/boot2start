@@ -35,18 +35,19 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
+
 module.exports = function(app) {
 
   // POST ROUTES
   // ==============================================================================
   app.post('/login',
   passport.authenticate('local', { successRedirect: '/bootcamps',
-                                   failureRedirect: '/bootcamps'
+                                   failureRedirect: '/login'
                                    })
 );
   app.post('/api/create/:route', function(req, res) {
     let body = req.body;
-    let route = req.params.route;
+    let route = req.params.route; 
     switch (route) {
 
       // CREATE BOOTCAMP
