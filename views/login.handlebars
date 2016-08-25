@@ -46,7 +46,7 @@
 
     <div id="id01" class="modal">
       
-      <form class="modal-content animate" action="action_page.php">
+      <form class="modal-content animate">
         <div class="imgcontainer">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
           <img src="" alt="Avatar" class="avatar">
@@ -54,12 +54,12 @@
 
         <div class="container">
           <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <input type="text" placeholder="Enter Username" name="uname" id = "usn" required>
 
           <label><b>Password</b></label>
-          <input type="password"  placeholder="Enter Password" name="psw" required>
+          <input type="password"  placeholder="Enter Password" name="psw" id = "pass" required>
             
-          <button type="submit">Login</button>
+          <button type="submit" id = "signinbtn">Login</button>
           <input type="checkbox" checked="checked"> Remember me
         </div>
 
@@ -70,12 +70,23 @@
       </form>
     </div>
 
-    <script>     $("#signupbtn").click(function(event) {
-      var email = $('#email').val();
-      var password = $('#password').val();
+    <script>     
+     var email, password;
+    $("#signupbtn").click(function(event) {
+       email = $('#email').val();
+       password = $('#password').val();
 event.preventDefault();       $.post('/api/create/user-signup', {email: email, password:password}, function(data) {
 console.log(data);       if (data.id){   
 document.getElementById('id01').style.display='block'       }     });
+
+    }) 
+
+     $("#signinbtn").click(function(event) {
+      console.log('here')
+      var email = $('#usn').val();
+     var password = $('#pass').val();
+event.preventDefault();       $.post('/login', {email: email, password:password}, function(data) {
+   });
 
     }) 
       

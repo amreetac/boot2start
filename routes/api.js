@@ -25,10 +25,25 @@ passport.use(new LocalStrategy(
     });
   }
 ));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
 module.exports = function(app) {
 
   // POST ROUTES
   // ==============================================================================
+  app.post('/login',
+  passport.authenticate('local', { successRedirect: '/bootcamps',
+                                   failureRedirect: '/bootcamps'
+                                   })
+);
   app.post('/api/create/:route', function(req, res) {
     let body = req.body;
     let route = req.params.route;
@@ -93,7 +108,7 @@ module.exports = function(app) {
          }).catch(function(err) {
           res.json({message: err.message});
          });
-         return;
+       
         break;
 
 
@@ -102,6 +117,7 @@ module.exports = function(app) {
       case 'user-signin':
 
         console.log('user-signin route');
+        break;
         //looking for one user whos password has the email and password submitted
         /*db.User.findOne({
         where: {email: req.body.email} }).then(function(dbUser) {
