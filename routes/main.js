@@ -21,64 +21,30 @@ module.exports = function(app) {
 
   // GET SINGLE SLUG ROUTES
   // ==============================================================================
-  app.get('/:route', function(req, res) {
-    let route = req.params.route;
-    let controller = controllers[route];
-    console.log(`route: ${route}`);
-
-
-    switch (route) {
-
-      // GET ALL BOOTCAMPS
-      case 'bootcamps':
-        controllers[route].get(function (bootcamps) {
-          res.render('bootcamps', { bootcamp:  bootcamps });
-        });
-        break;
-
-      // GET Bootcamp creation page
-      case 'bootcamp':
-        controllers[route].get(null, function () {
-          res.render('bootcamp-create');
-        })
-        break;
-
-      // GET STARTUPS PAGE WITH ALL STARTUPS
-      case 'startups':
-        console.log('startups route');
-        res.render('startups');
-        break;
-
-      // GET LOGIN PAGE
-      case 'login':
-        console.log('login route');
-        res.render('login');
-        break;
-
-      
-
-      // GET SIGNED URL FRROM S3
-      case 'signS3':
-        controllers[route].get(req.query, (signedRequest, err) => {
-          if (err) res.end();
-
-          res.write(JSON.stringify(signedRequest));
-          res.end();
-        });
-        break;
-
-      // ROUNTE NOT FOUND SEND ERROR
-      default:
-        console.log('route not found:', route);
-        res.json({
-          succes: false,
-          message: 'err: page not found',
-          route: route
-        });
-    }
-
+app.get('/bootcamps', function (req, res) {
+  controllers.bootcamps.get(function (bootcamps) {
+    res.render('bootcamps', { bootcamp:  bootcamps });
   });
+});
 
+app.get('/bootcamp', function (req, res) {
+  controllers.bootcamp.get(null, function () {
+    res.render('bootcamp-create');
+  });
+});
+
+app.get('/signS3', function (req, res) {
+  controllers.signS3.get(req.query, (signedRequest, err) => {
+    if (err) res.end();
+
+    res.write(JSON.stringify(signedRequest));
+    res.end();
+  });
+});
+
+app.get('/login', function (req, res) {
+  res.render('login');
+});
   // GET DOUBLE SLUG ROUTES
   // ==============================================================================
   app.get('/:route/:id', function(req, res) {
