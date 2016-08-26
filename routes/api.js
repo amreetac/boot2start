@@ -1,18 +1,53 @@
-bcrypt = require("bcrypt-nodejs");
+var bcrypt = require("bcrypt-nodejs");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var session = require("express-session");
+
 const bootcampController = require('../controllers/bootcamp');
 const candidateController = require('../controllers/candidate');
+//const passport = require('../controllers/candidate');
 const controllers = {
   bootcamp: bootcampController,
   candidate: candidateController
 }
 
+passport.use(new LocalStrategy(
+  function(email, password, done) {
+    User.findOne({ username: email }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
 module.exports = function(app) {
 
   // POST ROUTES
   // ==============================================================================
+  app.post('/login',
+  passport.authenticate('local', { successRedirect: '/bootcamps',
+                                   failureRedirect: '/login'
+                                   })
+);
   app.post('/api/create/:route', function(req, res) {
     let body = req.body;
-    let route = req.params.route;
+    let route = req.params.route; 
     switch (route) {
 
       // CREATE BOOTCAMP
@@ -52,6 +87,7 @@ module.exports = function(app) {
       // CREATE USER 
       
       case 'user-signup':
+      console.log(req.body);
 
         console.log('user-signup route');
         const salt = bcrypt.genSaltSync(10);
@@ -63,17 +99,26 @@ module.exports = function(app) {
           password: hash
          //sending the newly created user to the client
         }).then(function(dbUser) {
+          //console.log("11111");
+          //passport.authenticate('local')(req, res, function () {
+                //res.redirect('/bootcamps');
+          //console.log("123e4");
           res.json(dbUser.dataValues);
+        
            //if there are any errors creating our user, we will gracefully catch the error send the error to the client instead of throwing it (which would crash our server)
          }).catch(function(err) {
           res.json({message: err.message});
          });
-         break;
+       
+        break;
 
+
+       
      // USER SIGNIN
       case 'user-signin':
 
         console.log('user-signin route');
+        break;
         //looking for one user whos password has the email and password submitted
         /*db.User.findOne({
         where: {email: req.body.email} }).then(function(dbUser) {
@@ -103,11 +148,7 @@ module.exports = function(app) {
             });
         });
 */
-        passport.authenticate('local', { successRedirect: '/bootcamps',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
-        break;
-
+       
 
       // ROUTE NOT FOUND
       default:
