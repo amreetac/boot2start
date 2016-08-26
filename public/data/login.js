@@ -13,7 +13,7 @@ $("#signinbtn").click(function(event) {
  var email = $('#usn').val();
 var password = $('#pass').val();
 event.preventDefault();
- $.post('user/login', {email: email, password:password}, function(data) {
+ $.post('/login', {email: email, password:password}, function(data) {
 });
 
 })

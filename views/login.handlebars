@@ -46,7 +46,7 @@
 
     <div id="id01" class="modal">
 
-      <form class="modal-content animate">
+      <form class="modal-content animate" method="post" action="/login">
         <div class="imgcontainer">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
           <img src="" alt="Avatar" class="avatar">
@@ -54,10 +54,10 @@
 
         <div class="container">
           <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" id = "usn" required>
+          <input type="text" placeholder="Enter Username" name="email" id = "usn" required>
 
           <label><b>Password</b></label>
-          <input type="password"  placeholder="Enter Password" name="psw" id = "pass" required>
+          <input type="password"  placeholder="Enter Password" name="password" id = "pass" required>
 
           <button type="submit" id = "signinbtn">Login</button>
           <input type="checkbox" checked="checked"> Remember me
@@ -69,7 +69,7 @@
         </div>
       </form>
     </div>
-
+  
     <script src="/data/login.js"></script>
 
   </div>

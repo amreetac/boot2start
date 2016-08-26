@@ -3,6 +3,7 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var session = require("express-session");
 
+
 const bootcampController = require('../controllers/bootcamp');
 const candidateController = require('../controllers/candidate');
 //const passport = require('../controllers/candidate');
@@ -11,28 +12,38 @@ const controllers = {
   candidate: candidateController
 }
 
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password'
+},
   function(email, password, done) {
-    User.findOne({ username: email }, function(err, user) {
-      if (err) { return done(err); }
+    console.log(`email: ${email} password: ${password} done: ${done}`);
+    db.User.findOne({ where: {email: email}}).then( function (user) {
+      console.log(`user: ${user}`);
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
       }
-      if (!user.validPassword(password)) {
+      else if (bcrypt.compareSync(password, user.password)) {
+        return done(null, user);
+      } else {
         return done(null, false, { message: 'Incorrect password.' });
       }
-      return done(null, user);
+    //we gracefully handle any errors with our catch
+    }).catch(function(err) {
+      console.log(`err: ${err}`)
+      return done(err);
     });
   }
 ));
 
 passport.serializeUser(function(user, done) {
+  console.log(`user.id: ${user.id}`)
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
+  db.User.findOne({ where: {id: id}}).then(function (user) {
+    done(null, user);
   });
 });
 
@@ -40,12 +51,19 @@ module.exports = function(app) {
 
   // POST ROUTES
   // ==============================================================================
-  app.post('/login',
+  app.post('/user/login',
     passport.authenticate('local', {
       successRedirect: '/bootcamps',
       failureRedirect: '/login'
     })
   );
+  app.post('/login',
+  passport.authenticate('local'), function(req, res) {
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
+    console.log('success!');
+    res.redirect('/bootcamps');
+  });
 
   app.post('/api/create/:route', function(req, res) {
     let body = req.body;
@@ -120,36 +138,12 @@ module.exports = function(app) {
       case 'user-signin':
 
         console.log('user-signin route');
-        break;
-        //looking for one user whos password has the email and password submitted
-        /*db.User.findOne({
-        where: {email: req.body.email} }).then(function(dbUser) {
-         //if no user is found, we'll send back a message saying so
-          if (!dbUser) {
-            res.json({
-              success: false,
-              message: "User not found"
-            });
-          //otherwise we'll send back the user
-          } else if (bcrypt.compareSync(req.body.password, dbUser.password)) {
-            res.json(dbUser.dataValues);
 
-          //if the password is invalid, we'll let the user know
-          } else {
-            res.json({
-              success: false,
-              message: "Invalid Password"
-            });
-          }
-          //we gracefully handle any errors with our catch
-          }).catch(function(err) {
-            res.json({
-              success: false,
-              message: "Error",
-              err: err
-            });
-        });
-*/
+        // passport.authenticate('local', {
+        //   successRedirect: res.redirect('/bootcamps'),
+        //   failureRedirect: res.redirect('/login')
+        // })
+        break;
 
 
       // ROUTE NOT FOUND
