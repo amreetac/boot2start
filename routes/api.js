@@ -41,13 +41,15 @@ module.exports = function(app) {
   // POST ROUTES
   // ==============================================================================
   app.post('/login',
-  passport.authenticate('local', { successRedirect: '/bootcamps',
-                                   failureRedirect: '/login'
-                                   })
-);
+    passport.authenticate('local', {
+      successRedirect: '/bootcamps',
+      failureRedirect: '/login'
+    })
+  );
+
   app.post('/api/create/:route', function(req, res) {
     let body = req.body;
-    let route = req.params.route; 
+    let route = req.params.route;
     switch (route) {
 
       // CREATE BOOTCAMP
@@ -84,8 +86,8 @@ module.exports = function(app) {
         })
         break;
 
-      // CREATE USER 
-      
+      // CREATE USER
+
       case 'user-signup':
       console.log(req.body);
 
@@ -104,16 +106,16 @@ module.exports = function(app) {
                 //res.redirect('/bootcamps');
           //console.log("123e4");
           res.json(dbUser.dataValues);
-        
+
            //if there are any errors creating our user, we will gracefully catch the error send the error to the client instead of throwing it (which would crash our server)
          }).catch(function(err) {
           res.json({message: err.message});
          });
-       
+
         break;
 
 
-       
+
      // USER SIGNIN
       case 'user-signin':
 
@@ -148,7 +150,7 @@ module.exports = function(app) {
             });
         });
 */
-       
+
 
       // ROUTE NOT FOUND
       default:

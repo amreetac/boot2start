@@ -1,6 +1,5 @@
 <h1>Edit your account</h1>
     <hr>
-    <!-- dont remove -->
     <h2>Your Picture</h2>
     <input type="file" id="picture-input">
     <p id="status">Please select a picture</p>
@@ -10,17 +9,14 @@
     <img style="border:1px solid gray;width:300px;" width="300px"  id="preview" src="/images/default.png">
     <h2>Your information</h2>
     <form method="POST" action="/api/create/candidate">
-        <input type="hidden"  name="bootcampId" value="{{this.bootcampId}}"/>
-        <input type="hidden" id="picture-url" name="pictureURL" value="/images/default.png">
-        <input type="hidden" id="resume-url" name="resumeURL" value="">
-      <!-- dont remove -->
+      <input type="hidden"  name="bootcampId" value="{{this.bootcampId}}"/>
+      <input type="hidden" id="picture-url" name="pictureURL" value="/images/default.png">
+      <input type="hidden" id="resume-url" name="resumeURL" value="">
 
       <input type="text" name="firstName" placeholder="First Name"><br><br>
-
       <input type="text" name="lastName" placeholder="Last Name"><br><br>
       <hr>
       <input type="text" name="phoneNumber" placeholder="Phone Number"><br><br>
-
       <input type="text" name="email" placeholder="E-Mail"><br><br>
       <input type="text" name="city" placeholder="City"><br><br>
       <input type="text" name="state" placeholder="State"><br><br>
@@ -46,78 +42,4 @@
 
 
 
-    <script>
-    /*
-      Function to carry out the actual PUT request to S3 using the signed request from the app.
-    */
-
-    function uploadFile(file, signedRequest, url, fileType) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('PUT', signedRequest);
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            if (fileType === 'picture' ) {
-              document.getElementById('preview').src = url;
-              document.getElementById('picture-url').value = url;
-            } else if (fileType === 'resume' ){
-              document.getElementById('resume-url').value = url;
-            }
-
-          } else {
-            alert('Could not upload file.');
-          }
-        }
-      };
-      xhr.send(file);
-    }
-    /*
-      Function to get the temporary signed request from the app.
-      If request successful, continue to upload the file using this signed
-      request.
-    */
-    function getSignedRequest(file, fileType) {
-      var uniqueFileName = Date.now();
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', '/signS3?file-name=' + uniqueFileName + '_' + file.name + '&file-type=' + file.type);
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            uploadFile(file, response.signedRequest, response.url, fileType);
-          } else {
-            alert('Could not get signed URL.');
-          }
-        }
-      };
-      xhr.send();
-    }
-    /*
-     Function called when file input updated. If there is a file selected, then
-     start upload procedure by asking for a signed request from the app.
-    */
-    function initPicUpload() {
-      var files = document.getElementById('picture-input').files;
-      var file = files[0];
-      if (file == null) {
-        return alert('No file selected.');
-      }
-      getSignedRequest(file, 'picture');
-    }
-
-    function initResUpload() {
-      var files = document.getElementById('resume-input').files;
-      var file = files[0];
-      if (file == null) {
-        return alert('No file selected.');
-      }
-      getSignedRequest(file, 'resume');
-    }
-    /*
-     Bind listeners when the page loads.
-    */
-    (function () {
-      document.getElementById('picture-input').onchange = initPicUpload;
-      document.getElementById('resume-input').onchange = initResUpload;
-    })();
-    </script>
+    <script src="/data/upload.js"></script>
