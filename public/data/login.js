@@ -8,17 +8,6 @@ document.getElementById('id01').style.display='block'       }     });
 
 })
 
-$("#signinbtn").click(function(event) {
- console.log('here')
- var email = $('#usn').val();
-var password = $('#pass').val();
-event.preventDefault();
- $.post('/login', {email: email, password:password}, function(data) {
-});
-
-})
-
-
 
 // Get the modal
 // var modal = document.getElementById('id01');
