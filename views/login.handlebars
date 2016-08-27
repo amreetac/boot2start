@@ -14,7 +14,6 @@
      <div class="sidebar">
         <div id="connect">
                 <h2>Sign-up</h2>
-                  <form action="/api/create/user-signup" method="post" novalidate id="contact-form">
                   <br>
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-8 anima fade-up d1" >
@@ -22,21 +21,21 @@
 
                 <label class="control-label" for="contact-mail">Email</label>
                 <div class=" controls">
-                  <input id="contact-mail" name="email" placeholder="Your email" class="form-control input-lg requiredField" type="email">
+                  <input id="email" name="email" placeholder="Your email" class="form-control input-lg requiredField" type="email">
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label" for="contact-name">Password</label>
                 <div class="controls">
-                  <input id="contact-name" name="password" placeholder="password.." class="form-control input-lg requiredField" type="password">
+                  <input id="password" id="contact-name" name="password" placeholder="password.." class="form-control input-lg requiredField" type="password">
                 </div>
               </div>
               <p>
-                <button name="submit" type="submit" class="btn btn-store btn-block">Come on in!</button></p>
+                <button name="submit" id="signupbtn"
+                 class="btn btn-store btn-block">Come on in!</button></p>
               <input type="hidden" name="submitted" id="submitted3" value="true">
             </div>
           </div>
-        </form>
 
         </div>
     </div>
@@ -46,8 +45,8 @@
     <h2 button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</h2>
 
     <div id="id01" class="modal">
-      
-      <form class="modal-content animate" action="action_page.php">
+
+      <form class="modal-content animate" method="post" action="/login">
         <div class="imgcontainer">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
           <img src="" alt="Avatar" class="avatar">
@@ -55,12 +54,12 @@
 
         <div class="container">
           <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <input type="text" placeholder="Enter Username" name="email" id = "usn" required>
 
           <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-            
-          <button type="submit">Login</button>
+          <input type="password"  placeholder="Enter Password" name="password" id = "pass" required>
+
+          <button type="submit" id = "signinbtn">Login</button>
           <input type="checkbox" checked="checked"> Remember me
         </div>
 
@@ -70,19 +69,21 @@
         </div>
       </form>
     </div>
-
-    <script>
-    // Get the modal
-    var modal = document.getElementById('id01');
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    </script>
+    <div>
+      <form action="/login" method="post">
+    <div>
+        <label>Email:</label>
+        <input type="text" name="email"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <input type="submit" value="Log In"/>
+    </div>
+</form>
+</div>
+    <script src="/data/login.js"></script>
 
   </div>
-
-      

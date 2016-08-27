@@ -1,15 +1,70 @@
-bcrypt = require("bcrypt-nodejs");
+var bcrypt = require("bcrypt-nodejs");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var session = require("express-session");
+
+
 const bootcampController = require('../controllers/bootcamp');
 const candidateController = require('../controllers/candidate');
+//const passport = require('../controllers/candidate');
 const controllers = {
   bootcamp: bootcampController,
   candidate: candidateController
 }
 
+passport.use(new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password'
+},
+  function(email, password, done) {
+    console.log(`email: ${email} password: ${password} done: ${done}`);
+    db.User.findOne({ where: {email: email}}).then( function (user) {
+      console.log(`user: ${user}`);
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      else if (bcrypt.compareSync(password, user.password)) {
+        return done(null, user);
+      } else {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+    //we gracefully handle any errors with our catch
+    }).catch(function(err) {
+      console.log(`err: ${err}`)
+      return done(err);
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  console.log(`user.id: ${user.id}`)
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  db.User.findOne({ where: {id: id}}).then(function (user) {
+    done(null, user);
+  });
+});
+
 module.exports = function(app) {
 
   // POST ROUTES
   // ==============================================================================
+  app.post('/user/login',
+    passport.authenticate('local', {
+      successRedirect: '/bootcamps',
+      failureRedirect: '/login'
+    })
+  );
+  app.post('/login',
+  passport.authenticate('local'), function(req, res) {
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
+    console.log('success!');
+    res.redirect('/bootcamps');
+  });
+
   app.post('/api/create/:route', function(req, res) {
     let body = req.body;
     let route = req.params.route;
@@ -49,9 +104,10 @@ module.exports = function(app) {
         })
         break;
 
-      // CREATE USER 
-      
+      // CREATE USER
+
       case 'user-signup':
+      console.log(req.body);
 
         console.log('user-signup route');
         const salt = bcrypt.genSaltSync(10);
@@ -63,49 +119,30 @@ module.exports = function(app) {
           password: hash
          //sending the newly created user to the client
         }).then(function(dbUser) {
+          //console.log("11111");
+          //passport.authenticate('local')(req, res, function () {
+                //res.redirect('/bootcamps');
+          //console.log("123e4");
           res.json(dbUser.dataValues);
+
            //if there are any errors creating our user, we will gracefully catch the error send the error to the client instead of throwing it (which would crash our server)
          }).catch(function(err) {
           res.json({message: err.message});
          });
-         break;
+
+        break;
+
+
 
      // USER SIGNIN
       case 'user-signin':
 
         console.log('user-signin route');
-        //looking for one user whos password has the email and password submitted
-        /*db.User.findOne({
-        where: {email: req.body.email} }).then(function(dbUser) {
-         //if no user is found, we'll send back a message saying so
-          if (!dbUser) {
-            res.json({
-              success: false,
-              message: "User not found"
-            });
-          //otherwise we'll send back the user
-          } else if (bcrypt.compareSync(req.body.password, dbUser.password)) {
-            res.json(dbUser.dataValues);
 
-          //if the password is invalid, we'll let the user know
-          } else {
-            res.json({
-              success: false,
-              message: "Invalid Password"
-            });
-          }
-          //we gracefully handle any errors with our catch
-          }).catch(function(err) {
-            res.json({
-              success: false,
-              message: "Error",
-              err: err
-            });
-        });
-*/
-        passport.authenticate('local', { successRedirect: '/bootcamps',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
+        // passport.authenticate('local', {
+        //   successRedirect: res.redirect('/bootcamps'),
+        //   failureRedirect: res.redirect('/login')
+        // })
         break;
 
 
