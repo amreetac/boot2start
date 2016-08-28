@@ -32,11 +32,8 @@ require('./routes/api.js')(app);
 
 var PORT = process.env.PORT || 3000;
 
-db.sequelize.query('SET FOREIGN_KEY_CHECKS = 0')
-.then(function() {
-    return db.sequelize.sync({
-        force: false //Made it true to avoid deleting observations each time
-    })
+ db.sequelize.sync({
+    force: false //Made it true to avoid deleting observations each time
 }).then(function() {
     app.listen(PORT, function() {
         console.log("Server running on port %s", PORT);
