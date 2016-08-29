@@ -39,3 +39,21 @@ h1 {
         
 
  }
+
+.background {  
+  background: #ADD8E6;
+
+}
+
+
+footer
+{
+    color: white;
+    clear: both;
+   text-align: center;
+   background-color: #666666;
+   border-top: 5px solid #4aaaa5;
+   padding: 30px 0;
+   font-size: 12px;
+
+}
