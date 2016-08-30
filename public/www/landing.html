@@ -1,61 +1,66 @@
-<!-- Landing page -->
+<!DOCTYPE html>
+<html>
 
-<!doctype html>
-<html ng-app="storeApp">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/blue.css">
+</head>
 
-	<head>
-		<title>Boot2Start</title>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="css/blue.css" class="colors">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
-	</head>
+<body>
 
 
+  <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul id="navigation" class="nav navbar-nav navbar-right text-center">
+          <li><a href="#products">Bootcamps</a></li>
+          <li><a href="#about">Startups</a></li>
+          <!-- <li><a href="#testimonial">Testimonials</a></li> -->
+          <li><a href="#orderform">Login/Sign-up</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  <div class="container">
-
-  <section>
-
-   <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-          </button>
-
-        </div>
-
-        <div class="collapse navbar-collapse">
-          <ul id="navigation" class="nav navbar-nav navbar-right text-center">
-            <li><a href="#products">Bootcamps</a></li>
-            <li><a href="#about">Startups</a></li>
-            <!-- <li><a href="#testimonial">Testimonials</a></li> -->
-            <li><a href="#orderform">Login/Sign-up</a></li>
-          </ul>
-        </div>
+  <header>
+    <div class="header-banner">
+      <a class="logo"></a>
+    </div>
+  </header <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="col-md-8">
+      <div class="css-carousel">
+        <img class="css-img" src="http://www.va.gov/osdbu/images/businessMeeting.jpg">
+        <img class="css-img" src="http://www.fremont.edu/wp-content/uploads/2014/03/business-leadership-3.jpg">
+        <img class="css-img" src="http://www.va.gov/osdbu/images/businessMeeting.jpg">
+        <img class="css-img" src="http://www.fremont.edu/wp-content/uploads/2014/03/business-leadership-3.jpg">
+        <img class="css-img" src="http://www.va.gov/osdbu/images/businessMeeting.jpg">
+        <img class="css-img" src="http://www.fremont.edu/wp-content/uploads/2014/03/business-leadership-3.jpg">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="ccs-links">
+        <a href="#products">BootCamps</a><br/>
+        <a href="#products">StartUps</a><br/>
+        <a href="#products">Login</a><br/>
+        <a href="#products">SignUp</a>
 
       </div>
     </div>
+  </div>
 
-          <div class="relative">
-          <img src="img/start_to_finish.jpg" alt="Landing" width="1140" height="630">
-          <div class="absolute"> <h1> About Bootcamps <h1>
-             <button class = "btn" type="button" style="background-color:white">Explore</button> </div>
-          </div>
 
-        <footer id="main-footer" class="dark-bg light-typo">
-      <div class="container">
-        <p class="pull-left copyright">&copy; MicroStore 2014. <br> Designed by <a href="http://demo.angelostudio.net" target="_blank">Angelo Studio</a>.<br>
-        </p>
-        </div>
-      </div>
-    </footer>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type="text/javascript" src="../javascript/landing.js"></script>
 </body>
+
 </html>
