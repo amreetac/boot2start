@@ -1,9 +1,12 @@
 body {
-  margin: 0px;
-  padding: 0px;
+  
+  
   padding: 3em;
 }
 
+#navigation {
+  margin-top: 25px;
+}
 /*LANDING WRAPPER*/
 
 .wrapper-landing {
@@ -16,7 +19,7 @@ background-image: url(http://www.clipartsgram.com/image/239904127-swirlblue.jpg)
 /*HEADER*/
 
 header {
-  height: 360px;
+  height: 200px;
   z-index: 10;
 }
 
@@ -207,6 +210,7 @@ h1 {
 
 .btn {
   color: white;
+  background-color: #FFD700;
   font-family: Helvetica, Arial, Sans-Serif;
   font-size: 20px;
   text-decoration: none;
@@ -218,6 +222,10 @@ h1 {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   margin: 0 10px 0 0;
+}
+
+.btn2 {
+  text-align: center;
 }
 
 .btn:hover {
@@ -241,16 +249,60 @@ div.absolute {
   height: 100px;
 }
 
-.background {
-  background: #ADD8E6;
+.container {
+    width: 960px;
+  
+}
+
+.footcontainer {
+  width:100%;
+  height:80px;
+  
+  bottom:0;
+  left:0;
 }
 
 footer {
   color: white;
-  clear: both;
   text-align: center;
-  background-color: #666666;
-  border-top: 5px solid #4aaaa5;
+  background-color: #5454EB;
+  border-top: 5px solid #FFD700;
   padding: 30px 0;
   font-size: 12px;
+}
+
+/* For login page 
+
+.sidebar {
+  text-align: center;
+}
+
+.sidebar2 {
+  text-align: center;
+}
+
+*/
+
+/* For create bootcamp create and bootcamp pages */
+
+.bootcreate{
+  margin-top: 100px;
+}
+
+.bootcamps {
+  margin-top: 100px;
+}
+
+#createbtn {
+  width: 20%;
+}
+.profile {
+  margin-top: 100px;
+}
+
+
+/* For create profile page */
+
+.createprofile {
+  margin-top: 200px;
 }
