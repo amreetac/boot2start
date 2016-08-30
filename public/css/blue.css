@@ -1,11 +1,16 @@
 body {
-  background-image: url(http://www.clipartsgram.com/image/239904127-swirlblue.jpg);
   margin: 0px;
   padding: 0px;
   padding: 3em;
 }
 
+/*LANDING WRAPPER*/
 
+.wrapper-landing {
+
+background-image: url(http://www.clipartsgram.com/image/239904127-swirlblue.jpg);
+
+}
 
 
 /*HEADER*/
