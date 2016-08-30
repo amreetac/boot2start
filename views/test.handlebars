@@ -1,4 +1,4 @@
-  <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -19,22 +19,20 @@
 
       </div>
     </div>
-    
-    <div class = "bootcamps">
-    <div class = "container">
 
-    <h1>Candidates</h1>
+    <div class = "bootcamps">
+
+    <div class = "container1">
     
-        <h3>Is this your bootcamp?</h3>
-        <a class="btn btn-store smooth-scroll" href="/candidate-create/{{this.bootcampId}}">Create a profile</a>
-    </div>
+
+    <h1>Bootcamps</h1>
     <ul>
-    {{#each candidate}}
+    {{#each bootcamp}}
     <div>
         <li class = "bootlist">
-            <a href="/candidate/{{this.id}}">
-                <h2>{{this.firstName}} {{this.lastName}}</h2>
-                <img src="{{this.pictureURL}}" alt="{{this.firstName}} {{this.lastName}}'s picture" width="150" id="bootImage">
+            <a href="/candidates/{{this.id}}">
+                <h2>{{this.name}}</h2>
+                <img src="{{this.logoURL}}" alt="Bootcamp" width="150px" id="bootImage">
             </a>
         </li>
     </div>
@@ -42,4 +40,11 @@
     {{/each}}
     </ul>
 
+
     </div>
+
+        <button id="createbtn"
+                 class="btn btn-store btn-block"  href="/bootcamp">Create a bootcamp</button>
+      </div>
+
+</  
