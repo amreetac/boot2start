@@ -36,12 +36,15 @@
         <h3>Is this your bootcamp?</h3>
         <a class="btn btn-store smooth-scroll" href="/candidate-create/{{this.bootcampId}}">Create a profile</a>
     </div>
+
+<h2> Members: </h2>
+
     <ul>
     {{#each candidate}}
     <div>
         <li class = "bootlist">
             <a href="/candidate/{{this.id}}">
-                <h2>{{this.firstName}} {{this.lastName}}</h2>
+                <h3>{{this.firstName}} {{this.lastName}}</h3>
                 <img src="{{this.pictureURL}}" alt="{{this.firstName}} {{this.lastName}}'s picture" width="150" id="bootImage">
             </a>
         </li>
