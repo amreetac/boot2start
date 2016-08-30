@@ -1,5 +1,208 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  padding: 3em;
+}
+
+/*LANDING WRAPPER*/
+
+.wrapper-landing {
+
+background-image: url(http://www.clipartsgram.com/image/239904127-swirlblue.jpg);
+
+}
+
+
+/*HEADER*/
+
+header {
+  height: 360px;
+  z-index: 10;
+}
+
+.header-banner {
+  background-color: #85C1E9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+}
+
+header .logo {
+  background-color: transparent;
+  background-image: url('http://www.futhead.com/static//img/14/clubs/1887.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 72px;
+  height: 256px;
+  width: 256px;
+}
+
+
+/*
+header h1 {
+  position: absolute;
+  top: 72px;
+  left: 240px;
+  color: #fff;
+}*/
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+
+
+
+/*CAROUSEL*/
+
+.css-carousel {
+  width: 100%;
+  height: 350px;
+  /* Height of images */
+  position: relative;
+  margin-top: auto;
+}
+
+.css-carousel .css-img {
+  max-width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-animation: css-carousel-fade 30s linear infinite;
+  -moz-animation: css-carousel-fade 30s linear infinite;
+  -ms-animation: css-carousel-fade 30s linear infinite;
+  animation: css-carousel-fade 30s linear infinite;
+}
+
+.css-carousel .css-img:nth-child(2) {
+  -webkit-animation-delay: 5s;
+  -moz-animation-delay: 5s;
+  -ms-animation-delay: 5s;
+  animation-delay: 5s;
+}
+
+.css-carousel .css-img:nth-child(3) {
+  -webkit-animation-delay: 10s;
+  -moz-animation-delay: 10s;
+  -ms-animation-delay: 10s;
+  animation-delay: 10s;
+}
+
+.css-carousel .css-img:nth-child(4) {
+  -webkit-animation-delay: 15s;
+  -moz-animation-delay: 15s;
+  -ms-animation-delay: 15s;
+  animation-delay: 15s;
+}
+
+.css-carousel .css-img:nth-child(5) {
+  -webkit-animation-delay: 20s;
+  -moz-animation-delay: 20s;
+  -ms-animation-delay: 20s;
+  animation-delay: 20s;
+}
+
+.css-carousel .css-img:nth-child(6) {
+  -webkit-animation-delay: 25s;
+  -moz-animation-delay: 25s;
+  -ms-animation-delay: 25s;
+  animation-delay: 25s;
+}
+
+@-webkit-keyframes css-carousel-fade {
+  0%,
+  20%,
+  100% {
+    opacity: 0;
+  }
+  5%,
+  15% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes css-carousel-fade {
+  0%,
+  20%,
+  100% {
+    opacity: 0;
+  }
+  5%,
+  15% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes css-carousel-fade {
+  0%,
+  20%,
+  100% {
+    opacity: 0;
+  }
+  5%,
+  15% {
+    opacity: 1;
+  }
+}
+
+@keyframes css-carousel-fade {
+  0%,
+  20%,
+  100% {
+    opacity: 0;
+  }
+  5%,
+  15% {
+    opacity: 1;
+  }
+}
+
+
+
+
+/*LINKS*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+.ccs-links {
+  color: blue;
+  font: bold 3em/1.5 'Roboto', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: .2s;
+  margin-top: auto;
+}
+
+a:hover {
+  color: hotPink;
+}
+
+@media (-webkit-min-device-pixel-ratio:0) {
+  a {
+    background-color: skyBlue;
+    background-image: -webkit-linear-gradient(left, hotPink 0%, orange 50%, transparent 50%);
+    background-position: 100% 0;
+    background-size: 200% 200%;
+    color: transparent;
+    -webkit-transition: .1s .2s;
+    -webkit-background-clip: text;
+  }
+  a:hover {
+    background-position: 0 0;
+    color: transparent;
+    transition: .4s 0;
+  }
+}
+
 h1 {
-	color: white;
+  color: white;
 }
 
 .btn {
@@ -24,36 +227,30 @@ h1 {
   left: 5px;
 }
 
- div.relative {
-        position: relative;
-        width: 800px;
-        height: 300px;
-      }
-
- div.absolute {
-        position: absolute;
-        top: 190px;
-        right: 100px;
-        width: 200px;
-        height: 100px;
-        
-
- }
-
-.background {  
-  background: #ADD8E6;
-
+div.relative {
+  position: relative;
+  width: 800px;
+  height: 300px;
 }
 
+div.absolute {
+  position: absolute;
+  top: 190px;
+  right: 100px;
+  width: 200px;
+  height: 100px;
+}
 
-footer
-{
-    color: white;
-    clear: both;
-   text-align: center;
-   background-color: #666666;
-   border-top: 5px solid #4aaaa5;
-   padding: 30px 0;
-   font-size: 12px;
+.background {
+  background: #ADD8E6;
+}
 
+footer {
+  color: white;
+  clear: both;
+  text-align: center;
+  background-color: #666666;
+  border-top: 5px solid #4aaaa5;
+  padding: 30px 0;
+  font-size: 12px;
 }

@@ -3,7 +3,7 @@ config.json
 # passwords
 *keys.js
 keys.js
-
+*config.json
 # Logs
 logs
 *.log
