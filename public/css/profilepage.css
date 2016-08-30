@@ -9,6 +9,10 @@ html, body {
    font-size:13px;
 }
 
+#navigation {
+  margin-top: 25px;
+}
+
 a {
   color:#222222;
 }
@@ -283,4 +287,13 @@ small.text-muted {
   #sidebar, #sidebar a, #sidebar-footer a {
     padding-left:3px;
   }
+}
+
+.bootcamps {
+  margin-top: 200px;
+}
+
+
+.createprofile {
+  margin-top: 200px;
 }
