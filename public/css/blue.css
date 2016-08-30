@@ -224,6 +224,10 @@ h1 {
   margin: 0 10px 0 0;
 }
 
+.btn2 {
+  text-align: center;
+}
+
 .btn:hover {
   -webkit-box-shadow: 0px 0px 0 #666;
   -moz-box-shadow: 0px 0px 0 #666;
@@ -279,8 +283,16 @@ footer {
 
 */
 
-/* For create bootcamp page */
+/* For create bootcamp create and bootcamp pages */
 
 .bootcreate{
   margin-top: 100px;
+}
+
+.bootcamps {
+  margin-top: 100px;
+}
+
+#createbtn {
+  width: 20%;
 }
