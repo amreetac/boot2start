@@ -1,80 +1,93 @@
-<div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<div class="wrapper">
+  <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
           </button>
 
-        </div>
-
-
-        <div class="collapse navbar-collapse">
-        <img id = "logo" src="/images/logo-blue.png" alt="some_text" style="width:200px;height:100px;">
-
-          <ul id="navigation" class="nav navbar-nav navbar-right text-center">
-            <li><a href="/bootcamps">Bootcamps</a></li>
-            <li><a href="/login">Login/Sign-up</a></li>
-          </ul>
-        </div>
-
       </div>
+
+
+      <div class="collapse navbar-collapse">
+        <img id="logo" src="/images/logo-blue.png" alt="some_text" style="width:200px;height:80px;">
+
+        <ul id="navigation" class="nav navbar-nav navbar-right text-center">
+          <li><a href="/bootcamps">Bootcamps</a></li>
+          <li><a href="/login">Login/Sign-up</a></li>
+        </ul>
+      </div>
+
     </div>
+  </div>
 
 
-<div class = "createprofile"> 
+  <div class="createprofile">
 
-<h1>Edit your account</h1>
+
+    <h1>Edit your account</h1>
     <hr>
     <h2>Your Picture</h2>
     <input type="file" id="picture-input">
-    <p id="status">Please select a picture</p>
+    <p id="status"><strong>Please select a picture</strong></p>
+
     <h2>Your Resume</h2>
     <input type="file" id="resume-input">
-    <p id="status">Please select a pdf</p>
-    <img style="border:1px solid gray;width:300px;" width="300px"  id="preview" src="/images/default.png">
+    <p id="status"><strong>Please select a pdf</strong></p>
+    <img style="border:1px solid gray;width:300px;" width="300px" id="preview" src="/images/default.png">
     <h2>Your information</h2>
     <form method="POST" action="/api/create/candidate">
-      <input type="hidden"  name="bootcampId" value="{{this.bootcampId}}"/>
+      <input type="hidden" name="bootcampId" value="{{this.bootcampId}}" />
       <input type="hidden" id="picture-url" name="pictureURL" value="/images/default.png">
       <input type="hidden" id="resume-url" name="resumeURL" value="">
 
-      <input type="text" name="firstName" placeholder="First Name"><br><br>
-      <input type="text" name="lastName" placeholder="Last Name"><br><br>
-      <hr>
-      <input type="text" name="phoneNumber" placeholder="Phone Number"><br><br>
-      <input type="text" name="email" placeholder="E-Mail"><br><br>
-      <input type="text" name="city" placeholder="City"><br><br>
-      <input type="text" name="state" placeholder="State"><br><br>
-      <input type="text" name="bootcampCourse" placeholder="Bootcamp Course"><br><br>
-      <input type="text" name="courseFinish" placeholder="Bootcamp Completion"><br><br>
 
-     <div class="container">
+      <div class="form-group11"><label for="user_profile_attributes_linkedin_url">Username: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30" type="text" value=""><br><br>
 
-      <p>About Me:</p>
-      <label for="about-me"></label>
-      <textarea class="form-control" rows="8" id="about-me" name="bio" placeholder= "Tell us about yourself..."></textarea>
+      <div class="form-group11"><label for="user_profile_attributes_linkedin_url">First Name: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30" type="text" value=""><br><br>
 
-      <p>Skills:</p>
-      <label for="skills"></label>
-      <textarea class="form-control" rows="8" id="skills" name="skills"></textarea>
+      <div class="form-group11"><label for="user_profile_attributes_linkedin_url">Last Name: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30" type="text" value=""><br><br>
 
-    </div>
-    <br>
+      <div class="form-group11"><label for="user_profile_attributes_linkedin_url">E-Mail: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30" type="text" value=""><br><br>
 
-      <h2>Save changes</h2>
+      <div class="form-group11"><label for="user_profile_attributes_linkedin_url">Primary Number: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30" type="text" value=""><br><br>
+
+      <div class="form-group11"><label for="user_profile_attributes_linkedin_url">Bootcamp Completion: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30" type="text" value=""><br><br>
+
+
+      <div class="container">
+
+
+        <label for="about-me">About Me:</label>
+        <textarea class="form-control" rows="4" id="about-me" name="bio" placeholder="Tell us about yourself..."></textarea><br><br>
+
+
+        <label for="skills">Skills:</label>
+        <textarea class="form-control" rows="4" id="skills" name="skills"></textarea>
+
+      </div>
+      <br>
+
+      <h2>Save changes</h2><br>
       <input type="submit" value="Update profile">
     </form>
-
-
-
-    <script src="/javascript/upload.js"></script>
-
   </div>
 
-    <br>
+  <br>
+  <br>
+  <br>
 
-    <div class="footcontainer">
-        <footer>
-            &copy; Copyright 2016 Jeffrey Abraham Amreeta Choudhury Khris Kovoor Sudharshana Chavan
-        </footer>
-    </div>
+  <div class="footcontainer12">
+    <footer>
+      &copy; Boot2Start 2016 All Rights Reserved. Jeffrey Abraham Amreeta Choudhury Khris Kovoor Sudharshana Chavan
+    </footer>
+  </div>
+
+
+</div>

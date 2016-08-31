@@ -1,115 +1,114 @@
-    <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
           </button>
 
-        </div>
-
-
-        <div class="collapse navbar-collapse">
-        <img id = "logo" src="/images/logo-blue.png" alt="some_text" style="width:200px;height:100px;">
-
-          <ul id="navigation" class="nav navbar-nav navbar-right text-center">
-            <li><a href="/bootcamps">Bootcamps</a></li>
-            <li><a href="/login">Login/Sign-up</a></li>
-          </ul>
-        </div>
-
-      </div>
     </div>
+
+
+    <div class="collapse navbar-collapse">
+      <img id="logo" src="/images/logo-blue.png" alt="some_text" style="width:200px;height:80px;">
+
+      <ul id="navigation" class="nav navbar-nav navbar-right text-center">
+        <li><a href="/bootcamps">Bootcamps</a></li>
+        <li><a href="/login">Login/Sign-up</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
 
 <br>
 
-    
-    <div class="sidebar">
-        <div id="connect">
 
-        <br>
+<div class="sidebar">
+  <div id="connect">
+
+    <br>
 
 
-        </br>
-                <h2>Sign-up</h2>
-                  <br>
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8 anima fade-up d1" >
-              <div class="form-group">
+    </br>
+    <h2>Sign-up</h2>
+    <br>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-8 anima fade-up d1">
+        <div class="form-group">
 
-                <label class="control-label" for="contact-mail">Email</label>
-                <div class=" controls">
-                  <input id="email" name="email" placeholder="Your email" class="form-control input-lg requiredField" type="email">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label" for="contact-name">Password</label>
-                <div class="controls">
-                  <input id="password" id="contact-name" name="password" placeholder="password.." class="form-control input-lg requiredField" type="password">
-                </div>
-              </div>
-              <p>
-                <button name="submit" id="signupbtn"
-                 class="btn btn-store btn-block">Come on in!</button></p>
-              <input type="hidden" name="submitted" id="submitted3" value="true">
-            </div>
+          <label class="control-label" for="contact-mail">Email</label>
+          <div class=" controls">
+            <input id="email" name="email" placeholder="Your email" class="form-control input-lg requiredField" type="email">
           </div>
         </div>
-    </div>
-
-      <div class="sidebar2">
-
-    <h2 button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</h2>
-
-    <div id="id01" class="modal">
-
-      <form class="modal-content animate" method="post" action="/login">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <img src="" alt="Avatar" class="avatar">
+        <div class="form-group">
+          <label class="control-label" for="contact-name">Password</label>
+          <div class="controls">
+            <input id="password" id="contact-name" name="password" placeholder="password.." class="form-control input-lg requiredField" type="password">
+          </div>
         </div>
-
-        <div class="container">
-          <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="email" id = "usn" required>
-
-          <label><b>Password</b></label>
-          <input type="password"  placeholder="Enter Password" name="password" id = "pass" required>
-
-          <button type="submit" id = "signinbtn">Login</button>
-          <input type="checkbox" checked="checked"> Remember me
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-      </form>
+        <p>
+          <button name="submit" id="signupbtn" class="btn btn-store btn-block">Come on in!</button></p>
+        <input type="hidden" name="submitted" id="submitted3" value="true">
+      </div>
     </div>
-    <div>
-      <form action="/login" method="post">
-    <div>
-        <label>Email:</label>
-        <input type="text" name="email"/>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password"/>
-    </div>
-    <div>
-        <input type="submit" value="Log In"/>
-    </div>
-</form>
+  </div>
 </div>
-    
-    <script src="/javascript/login.js"></script>
 
+<div class="sidebar2">
 
+  <h2 button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</h2>
+
+  <div id="id01" class="modal">
+
+    <form class="modal-content animate" method="post" action="/login">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="" alt="Avatar" class="avatar">
+      </div>
+
+      <div class="container">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="email" id="usn" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" id="pass" required>
+
+        <button type="submit" id="signinbtn">Login</button>
+        <input type="checkbox" checked="checked"> Remember me
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
+  <div>
+    <form action="/login" method="post">
+      <div>
+        <label>Email:</label>
+        <input type="text" name="email" />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div>
+        <input type="submit" value="Log In" />
+      </div>
+    </form>
   </div>
 
-  <br>
+  <script src="/javascript/login.js"></script>
 
-  <div class="footcontainer">
-        <footer>
-            &copy; Copyright 2016 Jeffrey Abraham Amreeta Choudhury Khris Kovoor Sudharshana Chavan
-        </footer>
-  </div>
+
+</div>
+
+<br>
+
+<div class="footcontainer">
+  <footer>
+    &copy; Boot2Start 2016 All Rights Reserved. Jeffrey Abraham Amreeta Choudhury Khris Kovoor Sudharshana Chavan
+  </footer>
+</div>

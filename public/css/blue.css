@@ -1,18 +1,16 @@
 body {
-  
-  
   padding: 3em;
 }
 
 #navigation {
   margin-top: 25px;
 }
+
+
 /*LANDING WRAPPER*/
 
 .wrapper-landing {
-
-background-image: url(http://www.clipartsgram.com/image/239904127-swirlblue.jpg);
-
+  background-image: url(http://www.clipartsgram.com/image/239904127-swirlblue.jpg);
 }
 
 
@@ -58,9 +56,6 @@ header h1 {
   left: 0;
   width: 100%;
 }
-
-
-
 
 
 /*CAROUSEL*/
@@ -169,8 +164,6 @@ header h1 {
 }
 
 
-
-
 /*LINKS*/
 
 @import url(https://fonts.googleapis.com/css?family=Roboto);
@@ -250,26 +243,40 @@ div.absolute {
 }
 
 .container {
-    width: 960px;
-  
+  width: 960px;
 }
 
 .footcontainer {
-  width:100%;
-  height:80px;
-  
-  bottom:0;
-  left:0;
+  background: #5454EB;
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  clear: both;
+  width: 100%;
+  margin: auto;
+}
+
+.footcontainer12 {
+  background: #5454EB;
+  width: 100%;
+  height: 0px;
+  bottom: 0;
+  left: 0;
+  clear: both;
+  margin: auto;
 }
 
 footer {
   color: white;
   text-align: center;
   background-color: #5454EB;
-  border-top: 5px solid #FFD700;
   padding: 30px 0;
   font-size: 12px;
 }
+
 
 /* For login page 
 
@@ -283,9 +290,10 @@ footer {
 
 */
 
+
 /* For create bootcamp create and bootcamp pages */
 
-.bootcreate{
+.bootcreate {
   margin-top: 100px;
 }
 
@@ -296,6 +304,7 @@ footer {
 #createbtn {
   width: 20%;
 }
+
 .profile {
   margin-top: 100px;
 }
@@ -305,4 +314,19 @@ footer {
 
 .createprofile {
   margin-top: 200px;
+}
+
+
+/*BOOTCAMP NAME AND URL ALIGNMENT*/
+
+.form-group label {
+  display: inline-block;
+  width: 130px;
+  text-align: right;
+}
+
+.form-group11 label {
+  display: inline-block;
+  width: 200px;
+  text-align: left;
 }

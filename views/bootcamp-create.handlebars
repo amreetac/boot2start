@@ -1,58 +1,60 @@
-    <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<div class="wrapper">
+  <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
           </button>
 
-        </div>
+      </div>
 
 
-        <div class="collapse navbar-collapse">
-        <img id = "logo" src="/images/logo-blue.png" alt="some_text" style="width:200px;height:100px;">
+      <div class="collapse navbar-collapse">
+        <img id="logo" src="/images/logo-blue.png" href="/landing" alt="some_text" style="width:200px;height:80px;">
+        <ul id="navigation" class="nav navbar-nav navbar-right text-center">
+          <li><a href="/bootcamps">Bootcamps</a></li>
+          <li><a href="/login">Login/Sign-up</a></li>
+        </ul>
+      </div>
 
-          <ul id="navigation" class="nav navbar-nav navbar-right text-center">
-            <li><a href="/bootcamps">Bootcamps</a></li>
-            <li><a href="/login">Login/Sign-up</a></li>
-          </ul>
-        </div>
+    </div>
+  </div>
+
+  <br>
+
+
+  <div class="bootcreate">
+
+    <form class="create-update-form" action="/api/create/bootcamp" method="POST">
+
+      <div>
+
+        <h1> Create a Bootcamp! </h1>
+      </div>
+      <div class="form-group">
+
+        <br>
+
+        <label for="nam">Bootcamp Name:&nbsp;</label>
+        <input class="round2" type="text" id="nam" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="burl">Url:&nbsp;</label>
+        <input class="round2" type="url" name="logoURL">
 
       </div>
-    </div>
 
-    <br>
+      <button type="submit">Add Bootcamp</button>
+    </form>
 
+  </div>
 
-    </br>
-
-<div class = "bootcreate">
-
-	<form class="create-update-form" action="/api/create/bootcamp" method="POST">
-
-  	<div class="form-group">
-
-    <h1> Create a Bootcamp! </h1>
-
-    <br>
-    
-    	<label for="nam">Bootcamp Name:</label>
-    	<input type="text" id="nam" name="name">
-  	</div>
-
-  	<div class="form-group">
-    	<label for="burl">Url:</label><br>
-    	<input type="url" name="logoURL" > <br>
-  	</div>
-
-  	<button type="submit">Add Bootcamp</button>
-	</form>
-
-</div>	
-
-<br>
+  <br>
 
   <div class="footcontainer">
     <footer>
-            &copy; Copyright 2016 Jeffrey Abraham Amreeta Choudhury Khris Kovoor Sudharshana Chavan
+      &copy; Boot2Start 2016 All Rights Reserved. Jeffrey Abraham Amreeta Choudhury Khris Kovoor Sudharshana Chavan
     </footer>
   </div>
+</div>
