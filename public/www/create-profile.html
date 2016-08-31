@@ -30,51 +30,62 @@
     <form method="POST" action="/api/create/candidate">
       <input type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png">
       <!-- dont remove -->
-      <input type="text" name="username" placeholder="Username"><br><br>
+      <div><label for="user_profile_attributes_linkedin_url">Username: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30"  type="text" value="">
 
-      <input type="text" name="first-name" placeholder="First Name"><br><br>
+      <div><label for="user_profile_attributes_linkedin_url">First Name: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30"  type="text" value="">
 
-      <input type="text" name="last-name" placeholder="Last Name"><br><br>
-      <hr>
-      <input type="text" name="phone-number" placeholder="Phone Number"><br><br>
+      <div><label for="user_profile_attributes_linkedin_url">Last Name: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30"  type="text" value="">
 
-      <input type="text" name="e-mail" placeholder="E-Mail"><br><br>
+      <div><label for="user_profile_attributes_linkedin_url">E-Mail: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30"  type="text" value="">
 
-      <input type="text" name="finsh-bootcamp" placeholder="Bootcamp Completion"><br><br>
+      <div><label for="user_profile_attributes_linkedin_url">Primary Number: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30"  type="text" value="">
+
+      <div><label for="user_profile_attributes_linkedin_url">Bootcamp Completion: </label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30"  type="text" value="">
+      
 
       <div class="u-fontSize14 u-fontWeight600 s-vgPadRight0_5">Links</div>
 
-
-      <div class="s-form-sideLabelMd"><label for="user_profile_attributes_linkedin_url">LinkedIn</label></div>
-      <input id="user_profile_attributes_linkedin_url" name="user[profile_attributes][linkedin_url]" size="30" title="Link to your public LinkedIn profile" type="text" value="">
-
-      <div class="s-form-sideLabelMd"><label for="user_profile_attributes_twitter_url">Twitter</label></div>
-      <input id="user_profile_attributes_twitter_url" name="user[profile_attributes][twitter_url]" size="30" title="We&#39;ll send traffic to your Twitter account" type="text" value="">
-
-      <div class="s-form-sideLabelMd"><label for="user_profile_attributes_facebook_url">Facebook</label></div>
-      <input id="user_profile_attributes_facebook_url" name="user[profile_attributes][facebook_url]" size="30" title="Link to your public Facebook profile" type="text" value="">
+  
 
 
-      <div class="s-form-sideLabelMd"><label for="user_profile_attributes_github_url">GitHub</label></div>
-      <input id="user_profile_attributes_github_url" name="user[profile_attributes][github_url]" size="30" title="Link to your GitHub profile" type="text" value="">
 
-      <div class="s-form-sideLabelMd"><label for="user_profile_attributes_stackoverflow_url">Stack Overflow</label></div>
-      <input id="user_profile_attributes_stackoverflow_url" name="user[profile_attributes][stackoverflow_url]" size="30" title="Link to your Stack Overflow profile" type="text">
 
-      <div class="s-form-sideLabelMd"><label for="user_profile_attributes_dribbble_url">Dribbble</label></div>
-      <input id="user_profile_attributes_dribbble_url" name="user[profile_attributes][dribbble_url]" size="30" title="Link to your Dribbble profile" type="text" value="">
+      <div><label for="user_profile_attributes_linkedin_url">LinkedIn</label></div>
+      <input name="user[profile_attributes][linkedin_url]" size="30" title="Link to your public LinkedIn profile" type="text" value="">
 
-      <div class="s-form-sideLabelMd"><label for="user_profile_attributes_behance_url">Behance</label></div>
-      <input id="user_profile_attributes_behance_url" name="user[profile_attributes][behance_url]" size="30" title="Link to your Behance profile" type="text" value="">
+      <div><label for="user_profile_attributes_twitter_url">Twitter</label></div>
+      <input name="user[profile_attributes][twitter_url]" size="30" title="We&#39;ll send traffic to your Twitter account" type="text" value="">
 
-      <div class="s-form-sideLabelMd"><label for="user_profile_attributes_aboutme_url">about.me</label></div>
-      <input id="user_profile_attributes_aboutme_url" name="user[profile_attributes][aboutme_url]" size="30" title="Link to your about.me profile" type="text">
+      <div><label for="user_profile_attributes_facebook_url">Facebook</label></div>
+      <input name="user[profile_attributes][facebook_url]" size="30" title="Link to your public Facebook profile" type="text" value="">
 
-      <div class="s-form-sideLabelMd"><label for="user_profile_attributes_blog_url">Blog</label></div>
-      <input id="user_profile_attributes_blog_url" name="user[profile_attributes][blog_url]" size="30" title="Link to your personal or professional blog" type="text" value="">
 
-      <div class="s-form-sideLabelMd"><label for="user_profile_attributes_online_bio_url">Website</label></div>
-      <input id="user_profile_attributes_online_bio_url" name="user[profile_attributes][online_bio_url]" size="30" title="e.g. Please give us a link to your preferred professional bio (e.g. an about page on your company website)" type="text" value="">
+      <div><label for="user_profile_attributes_github_url">GitHub</label></div>
+      <input name="user[profile_attributes][github_url]" size="30" title="Link to your GitHub profile" type="text" value="">
+
+      <div><label for="user_profile_attributes_stackoverflow_url">Stack Overflow</label></div>
+      <input name="user[profile_attributes][stackoverflow_url]" size="30" title="Link to your Stack Overflow profile" type="text">
+
+      <div><label for="user_profile_attributes_dribbble_url">Dribbble</label></div>
+      <input name="user[profile_attributes][dribbble_url]" size="30" title="Link to your Dribbble profile" type="text" value="">
+
+      <div><label for="user_profile_attributes_behance_url">Behance</label></div>
+      <input name="user[profile_attributes][behance_url]" size="30" title="Link to your Behance profile" type="text" value="">
+
+      <div><label for="user_profile_attributes_aboutme_url">about.me</label></div>
+      <input name="user[profile_attributes][aboutme_url]" size="30" title="Link to your about.me profile" type="text">
+
+      <div><label for="user_profile_attributes_blog_url">Blog</label></div>
+      <input name="user[profile_attributes][blog_url]" size="30" title="Link to your personal or professional blog" type="text" value="">
+
+      <div><label for="user_profile_attributes_online_bio_url">Website</label></div>
+      <input name="user[profile_attributes][online_bio_url]" size="30" title="e.g. Please give us a link to your preferred professional bio (e.g. an about page on your company website)" type="text" value="">
 
       <input id="user_profile_attributes_id" name="user[profile_attributes][id]" type="hidden" value="3154091">
   </div>
